@@ -1,0 +1,160 @@
+# Odontoprime — Design System (Base para Landing Page)
+Extraído da análise das 3 referências visuais anexadas (estilo Dental editorial escuro, BrightSmile azulmint, Dentora escuro com dashboard).
+
+Foco de negócio converter visitante em conversa no WhatsApp. Todo o sistema foi montado para que o botão de WhatsApp seja o elemento de maior contraste e destaque em qualquer seção.
+
+---
+
+## 1. Cores
+
+### Paleta Principal (Neutros  Base)
+Usada em textos, backgrounds e estrutura — puxada do padrão escuroeditorial das refs 1 e 3.
+
+ Uso  Cor  Hex 
+---------
+ Texto principal  títulos  Preto-azulado  `#0B1120` 
+ Texto secundário  parágrafos  Cinza-chumbo  `#4B5563` 
+ Texto terciário  legendas  Cinza-claro  `#9CA3AF` 
+ Background principal  Branco  `#FFFFFF` 
+ Background alternado (seções pares)  Cinza muito claro  `#F7F8FA` 
+ Bordas  divisores  Cinza-gelo  `#E5E7EB` 
+ Hero escuro (overlay sobre foto)  Preto translúcido  `#0B1120` a 55% opacidade 
+
+### Paleta Secundária (Marca)
+Puxada do azulpetróleo confiável presente nas 3 referências — transmite segurança clínica.
+
+ Uso  Cor  Hex 
+---------
+ Azul principal (links, ícones, destaques)  Azul confiança  `#2563EB` 
+ Azul escuro (headlines de destaque, hover)  Azul profundo  `#1E3A8A` 
+ Azul claro (backgrounds de cardsícones)  Azul gelo  `#EFF6FF` 
+
+### Cor de Suporte  CTA (foco em conversão)
+O verde do WhatsApp é usado deliberadamente como cor de ação — é a única cor quente do sistema, reservada exclusivamente para CTAs que levam ao WhatsApp, garantindo que nenhum outro elemento compita visualmente com ela.
+
+ Uso  Cor  Hex 
+---------
+ CTA primário (botões Agendar no WhatsApp)  Verde WhatsApp  `#25D366` 
+ CTA hover  pressed  Verde WhatsApp escuro  `#1DA851` 
+ Íconefundo flutuante do WhatsApp  Verde WhatsApp  `#25D366` 
+ Selo de avaliação  estrelas  Âmbar  `#F59E0B` 
+ Alerta de sucesso (ex agendamento confirmado)  Verde-menta suporte  `#10B981` 
+
+ Regra de ouro o verde `#25D366` não aparece em mais nada além dos CTAs de WhatsApp e do botão flutuante fixo. Isso mantém o botão sempre escaneável pelo olho do usuário.
+
+---
+
+## 2. Tipografia
+
+As referências usam uma sans-serif geométricahumanista moderna (estilo Inter, General Sans, Manrope). Sugestão de par gratuito no Google Fonts
+
+- Títulos (Display) `Manrope` ou `General Sans` (peso 700800) — dá o efeito bold e editorial das refs 1 e 3.
+- Corpo de texto  UI `Inter` (peso 400500600) — alta legibilidade em telas, mesma família usada nos cards e formulários das refs.
+
+### Hierarquia
+
+ Elemento  Fonte  Peso  Tamanho (desktop)  Tamanho (mobile)  Line-height 
+------------------
+ H1 (Hero)  Manrope  800  56px  34px  1.1 
+ H2 (título de seção)  Manrope  700  36px  26px  1.2 
+ H3 (título de card)  Manrope  700  22px  19px  1.3 
+ H4 (subtítulorótulo pequeno)  Inter  600  14px (caps, letter-spacing 0.05em)  13px  1.4 
+ Corpo de texto  Inter  400  16–18px  15px  1.6 
+ Texto pequeno  legenda  Inter  400  13px  12px  1.5 
+ Botão  Inter  600  16px  15px  1 
+ Número de destaque (estatística)  Manrope  800  40px  28px  1 
+
+---
+
+## 3. Componentes
+
+### Botões
+- Formato pílula (border-radius total, `999px`) — presente nas 3 referências.
+- Primário (WhatsApp) fundo `#25D366`, texto branco, ícone de WhatsApp à esquerda do texto. Sombra suave verde no hover (`0 8px 20px rgba(37,211,102,0.35)`), leve elevação (`translateY(-2px)`) na interação.
+- Secundário fundo transparente, borda 1px `#0B1120`, texto `#0B1120`. Em fundo escuro (hero), inverte para fundo branco sólido com texto escuro (como nas refs 1 e 3).
+- Terciário  link Saiba mais sem fundo, texto azul `#2563EB`, seta `→` que se desloca 4px no hover.
+- Padding 14px vertical × 28px horizontal (desktop); 12px × 22px (mobile).
+- Botão flutuante fixo ícone circular de WhatsApp, `56px`, fixo no canto inferior direito em todas as páginas, com leve animação de pulso (`scale 1 → 1.08`) a cada poucos segundos para chamar atenção.
+
+### Inputs de Formulário (ex para formulário curto de contato)
+- Formato cantos arredondados `12px` (não pílula — reserva-se a pílula só para os CTAs).
+- Borda 1px `#E5E7EB`; ao focar, borda `#2563EB` + leve glow (`0 0 0 3px rgba(37,99,235,0.15)`).
+- Background branco ou `#F7F8FA`.
+- Altura 48px, padding horizontal 16px.
+- Label Inter 600, 13px, `#4B5563`, posicionada acima do campo.
+- Placeholder `#9CA3AF`.
+
+### Cards
+Dois estilos identificados nas referências
+
+1. Card de serviçotratamento (estilo ref. 2 Our Services)
+   - Fundo branco, borda `1px solid #E5E7EB`, `border-radius 20px`, padding 24px.
+   - Ícone no topo dentro de um círculoquadrado com fundo `#EFF6FF` e ícone azul `#2563EB`.
+   - Sombra sutil `0 4px 16px rgba(11,17,32,0.06)`.
+   - Hover sombra aumenta + leve elevação (`translateY(-4px)`), borda muda para azul claro.
+
+2. Card de estatísticaresultado (estilo ref. 1 e 3 98%  2k+  4.9)
+   - Sem borda, sem fundo — número grande em Manrope 800 + legenda pequena abaixo em caps.
+   - Usado para prova social (satisfação, sorrisos transformados, avaliação).
+
+3. Card de depoimento
+   - Fundo `#F7F8FA`, `border-radius 20px`, padding 24px, aspas decorativas em `#E5E7EB` no canto superior.
+   - Avatar circular 48px + nome (Inter 600) + estrelas âmbar `#F59E0B`.
+
+4. Card antesdepois
+   - Duas imagens lado a lado dentro de um único card com `border-radius 16px`, rótulos Antes  Depois em pílula pequena semitransparente sobre a foto.
+
+---
+
+## 4. Estética Geral
+
+### Border-radius
+ Elemento  Radius 
+------
+ Botões (CTA)  `999px` (pílula) 
+ Inputs  `12px` 
+ Cards  `20px` 
+ Imagens grandes (hero, fotos de tratamento)  `24px` 
+ Tagsbadges pequenos (ex Clareamento, Limpeza)  `999px` (pílula) 
+ Avatares  `50%` (circular) 
+
+### Sombras
+ Nível  Uso  Valor 
+---------
+ Sombra 1 (sutil)  Cards em repouso  `0 4px 16px rgba(11,17,32,0.06)` 
+ Sombra 2 (média)  Cards em hover, dropdowns  `0 8px 24px rgba(11,17,32,0.10)` 
+ Sombra 3 (CTA)  Botão de WhatsApp  `0 8px 20px rgba(37,211,102,0.35)` 
+ Sombra 4 (flutuante)  Botão fixo de WhatsApp  `0 6px 20px rgba(37,211,102,0.45)` 
+
+### Espaçamentos (grid de 8px)
+ Token  Valor  Uso 
+---------
+ `space-xs`  8px  Espaço entre ícone e texto, gaps pequenos 
+ `space-sm`  16px  Padding interno de tags, espaço entre linhas de texto 
+ `space-md`  24px  Padding interno de cards 
+ `space-lg`  40px  Espaço entre elementos dentro de uma seção 
+ `space-xl`  64px  Espaço entre blocos de conteúdo (ex texto → imagem) 
+ `space-2xl`  96–120px  Espaço entre seções (vertical) — padrão observado nas 3 refs 
+
+### Grid e Layout
+- Container máximo `1200px`, centralizado, padding lateral `24px` (mobile)  `80px` (desktop).
+- Hero layout dividido, texto à esquerda + foto grande à direita (ou foto de fundo com overlay escuro, como ref. 1 e 3).
+- Seção de tratamentos grid de 3 colunas (desktop) → 1 coluna (mobile), cards com altura igual.
+- Uso consistente de rótulo pequeno acima do H2 (ex Nossos Diferenciais ), em caps, cor azul ou cinza — recurso presente nas 3 referências para dar ritmo editorial.
+
+### Fotografia
+- Fotos reais de procedimentopaciente, tom quente e iluminado (ref. 1) ou clínico e claro (ref. 23).
+- Sempre com cantos arredondados grandes (`24px`).
+- Uso de overlay escuro semitransparente quando texto branco fica sobre a foto no hero.
+
+---
+
+## 5. Regra de Conversão (WhatsApp-first)
+
+Para garantir que o objetivo de negócio (levar ao WhatsApp) fique protegido em qualquer tela do site
+
+1. Header botão de WhatsApp sempre visível, fixo, no canto superior direito.
+2. Hero CTA primário é sempre Agendar pelo WhatsApp — nunca Saiba mais como botão principal.
+3. Botão flutuante ícone fixo no rodapé da viewport em todas as páginastelas, com leve pulso de atenção.
+4. Cada seção de tratamento termina com um link secundário para o WhatsApp (Tirar dúvida sobre este tratamento →).
+5. CTA final da página bloco de destaque com fundo escuro (`#0B1120`) ou azul profundo (`#1E3A8A`) e botão verde grande centralizado — maior contraste do documento.

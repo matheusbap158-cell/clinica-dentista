@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inova Prime — Dentista em Lavras/MG</title>
+<meta name="description" content="Estrutura moderna, tecnologia de ponta e uma equipe que trata cada paciente com atenção genuína, do primeiro contato ao resultado final. Inova Prime, dentista em Lavras/MG.">
+<style>
+  /* ==========================================================
+     DESIGN TOKENS — Inova Prime Design System
+     ========================================================== */
+  :root{
+    /* Cores — neutros base */
+    --color-text-primary:#0B1120;
+    --color-text-secondary:#4B5563;
+    --color-text-tertiary:#9CA3AF;
+    --color-bg:#FFFFFF;
+    --color-bg-alt:#F7F8FA;
+    --color-border:#E5E7EB;
+    --color-hero-overlay:rgba(11,17,32,0.55);
+
+    /* Cores — marca */
+    --color-blue:#2563EB;
+    --color-blue-dark:#1E3A8A;
+    --color-blue-ice:#EFF6FF;
+
+    /* Cores — CTA / conversão */
+    --color-whatsapp:#25D366;
+    --color-whatsapp-dark:#1DA851;
+    --color-amber:#F59E0B;
+    --color-mint:#10B981;
+
+    /* Tipografia */
+    --font-display:'Manrope','General Sans','Segoe UI',system-ui,-apple-system,sans-serif;
+    --font-body:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+
+    /* Border radius */
+    --radius-button:999px;
+    --radius-input:12px;
+    --radius-card:20px;
+    --radius-image:24px;
+    --radius-badge:999px;
+    --radius-avatar:50%;
+
+    /* Sombras */
+    --shadow-1:0 4px 16px rgba(11,17,32,0.06);
+    --shadow-2:0 8px 24px rgba(11,17,32,0.10);
+    --shadow-cta:0 8px 20px rgba(37,211,102,0.35);
+    --shadow-float:0 6px 20px rgba(37,211,102,0.45);
+
+    /* Espaçamentos (grid de 8px) */
+    --space-xs:8px;
+    --space-sm:16px;
+    --space-md:24px;
+    --space-lg:40px;
+    --space-xl:64px;
+    --space-2xl:96px;
+
+    --container-max:1200px;
+    --container-pad:24px;
+  }
+
+  @media (min-width:1024px){
+    :root{ --container-pad:80px; }
+  }
+
+  /* ==========================================================
+     RESET
+     ========================================================== */
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion:reduce){
+    html{ scroll-behavior:auto; }
+    *,*::before,*::after{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    font-weight:400;
+    font-size:16px;
+    line-height:1.6;
+    color:var(--color-text-secondary);
+    background:var(--color-bg);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+  ul{ margin:0; padding:0; list-style:none; }
+  button{ font-family:inherit; cursor:pointer; }
+  h1,h2,h3,h4,p{ margin:0; }
+
+  .skip-link{
+    position:absolute;
+    left:-9999px;
+    top:0;
+    background:var(--color-blue-dark);
+    color:#fff;
+    padding:12px 20px;
+    z-index:1000;
+    border-radius:0 0 var(--radius-input) 0;
+  }
+  .skip-link:focus{ left:0; }
+
+  :focus-visible{
+    outline:3px solid var(--color-blue);
+    outline-offset:2px;
+  }
+
+  .container{
+    max-width:var(--container-max);
+    margin:0 auto;
+    padding-left:var(--container-pad);
+    padding-right:var(--container-pad);
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--color-blue);
+    margin-bottom:var(--space-sm);
+  }
+  .eyebrow--light{ color:#BFD4FF; }
+
+  h1{ font-family:var(--font-display); font-weight:800; font-size:34px; line-height:1.1; color:var(--color-text-primary); }
+  h2{ font-family:var(--font-display); font-weight:700; font-size:26px; line-height:1.2; color:var(--color-text-primary); }
+  h3{ font-family:var(--font-display); font-weight:700; font-size:19px; line-height:1.3; color:var(--color-text-primary); }
+  h4{ font-family:var(--font-body); font-weight:600; font-size:13px; line-height:1.4; letter-spacing:0.05em; text-transform:uppercase; }
+  .stat-number{ font-family:var(--font-display); font-weight:800; font-size:28px; line-height:1; }
+  small, .small-text{ font-size:12px; line-height:1.5; }
+
+  @media (min-width:768px){
+    h1{ font-size:44px; }
+    h2{ font-size:32px; }
+    h3{ font-size:21px; }
+    .stat-number{ font-size:34px; }
+  }
+  @media (min-width:1024px){
+    h1{ font-size:56px; }
+    h2{ font-size:36px; }
+    h3{ font-size:22px; }
+    h4{ font-size:14px; }
+    body{ font-size:18px; }
+    small, .small-text{ font-size:13px; }
+    .stat-number{ font-size:40px; }
+  }
+
+  section{ padding:var(--space-2xl) 0; }
+  .section-alt{ background:var(--color-bg-alt); }
+  .section-head{ max-width:680px; margin-bottom:var(--space-xl); }
+  .section-head--center{ margin-left:auto; margin-right:auto; text-align:center; }
+  .section-head p{ margin-top:var(--space-sm); }
+
+  /* ==========================================================
+     BOTÕES
+     ========================================================== */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    min-height:44px;
+    padding:12px 22px;
+    border-radius:var(--radius-button);
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:15px;
+    text-decoration:none;
+    border:1px solid transparent;
+    transition:transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    white-space:nowrap;
+  }
+  @media (min-width:768px){
+    .btn{ padding:14px 28px; font-size:16px; }
+  }
+
+  .btn-primary{
+    /* WhatsApp green (#25D366) only reaches ~2:1 contrast with white text,
+       well under WCAG AA's 4.5:1 for normal text — so the label/icon use
+       the design system's dark neutral instead of white here. */
+    background:var(--color-whatsapp);
+    color:var(--color-text-primary);
+    box-shadow:var(--shadow-cta);
+  }
+  .btn-primary:hover, .btn-primary:focus-visible{
+    background:var(--color-whatsapp-dark);
+    transform:translateY(-2px);
+    box-shadow:0 12px 26px rgba(37,211,102,0.4);
+  }
+
+  .btn-secondary{
+    background:transparent;
+    color:var(--color-text-primary);
+    border:1px solid var(--color-text-primary);
+  }
+  .btn-secondary:hover, .btn-secondary:focus-visible{
+    background:var(--color-text-primary);
+    color:#fff;
+  }
+
+  .btn-secondary--inverse{
+    background:#fff;
+    color:var(--color-text-primary);
+    border:1px solid #fff;
+  }
+  .btn-secondary--inverse:hover, .btn-secondary--inverse:focus-visible{
+    background:var(--color-bg-alt);
+    transform:translateY(-2px);
+  }
+
+  .btn-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    color:var(--color-blue);
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    min-height:44px;
+    padding:8px 0;
+  }
+  .btn-link .arrow{ transition:transform 0.2s ease; }
+  .btn-link:hover .arrow, .btn-link:focus-visible .arrow{ transform:translateX(4px); }
+
+  /* ==========================================================
+     HEADER
+     ========================================================== */
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--color-border);
+  }
+  .header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:var(--space-md);
+    padding-top:var(--space-sm);
+    padding-bottom:var(--space-sm);
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:19px;
+    color:var(--color-text-primary);
+  }
+  .logo-mark{
+    width:36px;
+    height:36px;
+    border-radius:10px;
+    background:var(--color-blue-dark);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+
+  .main-nav{
+    display:none;
+  }
+  .main-nav ul{ display:flex; align-items:center; gap:var(--space-lg); }
+  .main-nav a{
+    text-decoration:none;
+    font-weight:500;
+    font-size:15px;
+    color:var(--color-text-secondary);
+    padding:8px 2px;
+    border-bottom:2px solid transparent;
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+  .main-nav a:hover, .main-nav a:focus-visible{
+    color:var(--color-blue);
+    border-color:var(--color-blue);
+  }
+
+  .header-actions{ display:flex; align-items:center; gap:var(--space-sm); }
+  .header-actions .btn-primary{ display:none; }
+
+  .nav-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+    background:transparent;
+    border:1px solid var(--color-border);
+    border-radius:var(--radius-input);
+  }
+  .nav-toggle svg{ width:22px; height:22px; }
+
+  .mobile-nav{
+    display:none;
+    border-top:1px solid var(--color-border);
+    background:#fff;
+  }
+  .mobile-nav.is-open{ display:block; }
+  .mobile-nav ul{ padding:var(--space-sm) var(--container-pad) var(--space-md); display:flex; flex-direction:column; gap:2px; }
+  .mobile-nav a{
+    display:block;
+    text-decoration:none;
+    color:var(--color-text-primary);
+    font-weight:500;
+    font-size:16px;
+    padding:12px 8px;
+    min-height:44px;
+    display:flex;
+    align-items:center;
+    border-radius:var(--radius-input);
+  }
+  .mobile-nav a:hover, .mobile-nav a:focus-visible{ background:var(--color-bg-alt); color:var(--color-blue); }
+  .mobile-nav .btn-primary{ margin:var(--space-sm) 8px 0; }
+
+  @media (min-width:1024px){
+    .main-nav{ display:block; }
+    .header-actions .btn-primary{ display:inline-flex; }
+    .nav-toggle{ display:none; }
+    .mobile-nav{ display:none !important; }
+  }
+
+  /* ==========================================================
+     HERO
+     ========================================================== */
+  .hero{
+    position:relative;
+    z-index:0; /* establishes a stacking context so the negative z-index
+                  video/overlay children stack above this element's own
+                  background instead of escaping behind it */
+    color:#fff;
+    padding-top:var(--space-2xl);
+    padding-bottom:var(--space-2xl);
+    background:var(--color-text-primary);
+    overflow:hidden;
+  }
+  .hero-bg-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:var(--color-hero-overlay);
+    z-index:-1;
+  }
+  .hero-inner{
+    display:grid;
+    gap:var(--space-xl);
+    align-items:center;
+  }
+  .hero-text p{ color:#D6DEEE; font-size:17px; }
+  .hero h1{ color:#fff; margin-top:var(--space-sm); }
+  .hero-subtitle{ margin-top:var(--space-md); max-width:560px; }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:var(--space-sm); margin-top:var(--space-lg); }
+
+  .hero-stats{
+    margin-top:var(--space-xl);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:var(--space-md);
+  }
+  .hero-stat{ border-top:1px solid rgba(255,255,255,0.2); padding-top:var(--space-sm); }
+  .hero-stat .stat-number{ color:#fff; }
+  .hero-stat .stat-label{ display:block; margin-top:4px; font-size:13px; color:#B9C4DA; }
+
+  @media (min-width:768px){
+    .hero-stats{ grid-template-columns:repeat(4,1fr); }
+  }
+  @media (min-width:1024px){
+    .hero-inner{ grid-template-columns:1.1fr 0.9fr; }
+  }
+
+  /* ==========================================================
+     CARDS — genéricos
+     ========================================================== */
+  .card{
+    background:#fff;
+    border:1px solid var(--color-border);
+    border-radius:var(--radius-card);
+    padding:var(--space-md);
+    box-shadow:var(--shadow-1);
+    transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .card:hover{
+    box-shadow:var(--shadow-2);
+    transform:translateY(-4px);
+    border-color:var(--color-blue-ice);
+  }
+  .card-icon{
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    background:var(--color-blue-ice);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:var(--space-sm);
+  }
+  .card-icon svg{ width:26px; height:26px; stroke:var(--color-blue); }
+  .card h3{ margin-bottom:8px; }
+
+  .grid{ display:grid; gap:var(--space-md); }
+  .grid-1{ grid-template-columns:1fr; }
+  @media (min-width:768px){
+    .grid-2-tablet{ grid-template-columns:repeat(2,1fr); }
+  }
+  @media (min-width:1024px){
+    .grid-3-desktop{ grid-template-columns:repeat(3,1fr); }
+    .grid-4-desktop{ grid-template-columns:repeat(4,1fr); }
+  }
+
+  /* ==========================================================
+     SOBRE
+     ========================================================== */
+  .about-layout{ display:grid; gap:var(--space-xl); grid-template-columns:1fr; align-items:center; margin-bottom:var(--space-xl); }
+  @media (min-width:1024px){ .about-layout{ grid-template-columns:1fr 1fr; } }
+  .about-intro{ max-width:760px; }
+  .about-intro p{ margin-top:var(--space-sm); font-size:18px; }
+  .about-gallery{ display:grid; gap:var(--space-sm); }
+  .about-gallery img{
+    width:100%;
+    height:auto;
+    border-radius:var(--radius-image);
+    box-shadow:var(--shadow-2);
+    object-fit:cover;
+    display:block;
+  }
+  .about-gallery .about-photo-wide{ aspect-ratio:860/645; }
+  .about-gallery .about-photo-square{ aspect-ratio:1/1; max-width:60%; margin-left:auto; margin-right:0; }
+
+  /* ==========================================================
+     ESPECIALISTA
+     ========================================================== */
+  .specialist{
+    display:grid;
+    gap:var(--space-xl);
+    align-items:start;
+  }
+  .specialist-photo img{
+    border-radius:var(--radius-image);
+    box-shadow:var(--shadow-2);
+    width:100%;
+    height:auto; /* without this, the HTML height attribute (used for
+      intrinsic-size/CLS hints) wins over aspect-ratio and the box renders
+      at the image's raw pixel height instead of the intended 4:5 crop */
+    aspect-ratio:4/5;
+    object-fit:cover;
+    object-position:top center;
+  }
+  .specialist-name{ margin-top:var(--space-sm); }
+  .specialist-role{
+    color:var(--color-blue);
+    font-weight:600;
+    font-size:15px;
+    margin-top:4px;
+  }
+  .specialist-text{ margin-top:var(--space-md); font-size:17px; }
+  .specialist-list{ margin-top:var(--space-lg); display:grid; gap:var(--space-md); }
+  .specialist-item{ display:flex; gap:14px; }
+  .specialist-item .dot{
+    flex-shrink:0;
+    width:10px; height:10px;
+    border-radius:50%;
+    background:var(--color-whatsapp);
+    margin-top:8px;
+  }
+  .specialist-item h3{ font-size:16px; margin-bottom:4px; }
+  @media (min-width:1024px){
+    .specialist{ grid-template-columns:0.8fr 1.2fr; }
+  }
+
+  /* ==========================================================
+     EQUIPE
+     ========================================================== */
+  .team-grid{ display:grid; gap:var(--space-md); grid-template-columns:1fr; }
+  @media (min-width:600px){ .team-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:1024px){ .team-grid{ grid-template-columns:repeat(4,1fr); } }
+  .team-card{ text-align:left; }
+  .team-photo{
+    width:100%;
+    height:auto;
+    aspect-ratio:1/1;
+    border-radius:var(--radius-image);
+    object-fit:cover;
+    object-position:top center;
+    margin-bottom:var(--space-sm);
+  }
+  .team-card h3{ font-size:17px; }
+  .team-role{ color:var(--color-text-secondary); font-size:14px; margin-top:2px; }
+  .team-cro{ color:var(--color-text-secondary); font-size:13px; margin-top:6px; }
+
+  /* ==========================================================
+     TRATAMENTOS
+     ========================================================== */
+  .treatments-grid{ display:grid; gap:var(--space-md); grid-template-columns:1fr; }
+  @media (min-width:768px){ .treatments-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (min-width:1024px){ .treatments-grid{ grid-template-columns:repeat(3,1fr); } }
+  .treatment-card{ display:flex; flex-direction:column; }
+  .treatment-card p{ flex-grow:1; margin-bottom:var(--space-sm); }
+
+  /* ==========================================================
+     RESULTADOS / ANTES-DEPOIS
+     ========================================================== */
+  .results-card{
+    border-radius:var(--radius-card);
+    box-shadow:var(--shadow-1);
+    background:#fff;
+    border:1px solid var(--color-border);
+    padding:var(--space-md);
+  }
+  @media (min-width:768px){ .results-card{ padding:var(--space-lg); } }
+
+  .results-carousel{ position:relative; overflow:hidden; border-radius:var(--radius-input); }
+  .results-carousel.has-transition{ transition:height 0.5s ease; }
+  .results-track{ display:flex; align-items:flex-start; }
+  .results-track.has-transition{ transition:transform 0.5s ease; }
+  .result-item{ flex:1 0 100%; width:100%; }
+  .result-photo{
+    display:block;
+    width:100%;
+    height:auto;
+    max-width:420px;
+    margin:0 auto;
+    aspect-ratio:1792/2400;
+    object-fit:cover;
+    border-radius:var(--radius-input);
+  }
+  .result-caption{ padding-top:var(--space-sm); font-weight:600; color:var(--color-text-primary); font-size:15px; text-align:center; }
+
+  .carousel-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:2;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#fff;
+    border:1px solid var(--color-border);
+    box-shadow:var(--shadow-1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--color-text-primary);
+    transition:background-color 0.2s ease, transform 0.2s ease;
+  }
+  .carousel-arrow:hover, .carousel-arrow:focus-visible{ background:var(--color-blue-ice); }
+  .carousel-arrow--prev{ left:8px; }
+  .carousel-arrow--next{ right:8px; }
+  @media (min-width:640px){
+    .carousel-arrow--prev{ left:16px; }
+    .carousel-arrow--next{ right:16px; }
+  }
+
+  .results-dots{ display:flex; justify-content:center; align-items:center; gap:8px; margin-top:var(--space-lg); }
+  .results-dot{
+    width:8px;
+    height:8px;
+    padding:0;
+    border:none;
+    border-radius:999px;
+    background:var(--color-border);
+    cursor:pointer;
+    transition:background-color 0.2s ease, width 0.2s ease;
+  }
+  .results-dot:hover{ background:var(--color-text-tertiary); }
+  .results-dot.is-active{ background:var(--color-blue); width:26px; }
+  .results-dot:focus-visible{ outline:3px solid var(--color-blue); outline-offset:2px; }
+
+  /* ==========================================================
+     DEPOIMENTOS
+     ========================================================== */
+  .testimonials-grid{ display:grid; gap:var(--space-md); grid-template-columns:1fr; }
+  @media (min-width:1024px){ .testimonials-grid{ grid-template-columns:repeat(3,1fr); } }
+  .testimonial-card{
+    background:var(--color-bg-alt);
+    border-radius:var(--radius-card);
+    padding:var(--space-md);
+    position:relative;
+  }
+  .testimonial-quote-mark{
+    font-family:var(--font-display);
+    font-size:48px;
+    line-height:1;
+    color:var(--color-border);
+    display:block;
+    margin-bottom:4px;
+  }
+  .testimonial-stars{ color:var(--color-amber); letter-spacing:2px; font-size:15px; margin-bottom:var(--space-sm); }
+  .testimonial-text{ color:var(--color-text-primary); font-size:16px; }
+  .testimonial-author{ display:flex; align-items:center; gap:12px; margin-top:var(--space-md); }
+  .testimonial-author img{ width:48px; height:48px; border-radius:50%; object-fit:cover; }
+  .testimonial-author span{ font-weight:600; color:var(--color-text-primary); font-size:14px; }
+
+  /* ==========================================================
+     LOCALIZAÇÃO
+     ========================================================== */
+  .location{ display:grid; gap:var(--space-xl); }
+  .location-map{
+    border-radius:var(--radius-image);
+    overflow:hidden;
+    border:1px solid var(--color-border);
+    box-shadow:var(--shadow-1);
+    min-height:280px;
+  }
+  .location-map img{ width:100%; height:100%; object-fit:cover; min-height:280px; }
+  .location-info dl{ margin-top:var(--space-sm); }
+  .location-block{ margin-bottom:var(--space-lg); }
+  .location-block h3{ margin-bottom:8px; }
+  .location-block p{ margin:0; }
+  .hours-row{ display:flex; justify-content:space-between; gap:var(--space-sm); padding:8px 0; border-bottom:1px solid var(--color-border); font-size:15px; }
+  .hours-row:last-child{ border-bottom:none; }
+  .hours-row dt{ color:var(--color-text-primary); font-weight:600; }
+  .hours-row dd{ margin:0; }
+  .location-actions{ display:flex; flex-wrap:wrap; gap:var(--space-sm); margin-top:var(--space-lg); }
+  @media (min-width:1024px){ .location{ grid-template-columns:1fr 1fr; align-items:stretch; } }
+
+  /* ==========================================================
+     CTA FINAL
+     ========================================================== */
+  .cta-final{
+    background:var(--color-blue-dark);
+    color:#fff;
+    border-radius:var(--radius-image);
+    padding:var(--space-2xl) var(--space-md);
+    text-align:center;
+  }
+  .cta-final h2{ color:#fff; }
+  .cta-final p{ color:#CFDCF6; max-width:560px; margin:var(--space-sm) auto 0; font-size:18px; }
+  .cta-final .btn-primary{ margin-top:var(--space-lg); }
+  .cta-final .phone{ margin-top:var(--space-md); color:#CFDCF6; font-size:15px; }
+  .cta-final .phone a{ color:#fff; text-decoration:underline; }
+
+  /* ==========================================================
+     FOOTER
+     ========================================================== */
+  .site-footer{
+    background:var(--color-text-primary);
+    color:#B9C4DA;
+    padding:var(--space-xl) 0;
+  }
+  .footer-inner{ display:flex; flex-direction:column; gap:var(--space-sm); align-items:center; text-align:center; }
+  .footer-inner p{ margin:0; font-size:14px; }
+  .footer-logo{ font-family:var(--font-display); font-weight:800; font-size:18px; color:#fff; }
+
+  /* ==========================================================
+     WHATSAPP FLUTUANTE
+     ========================================================== */
+  .whatsapp-float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    background:var(--color-whatsapp);
+    /* Dark icon instead of white: white-on-#25D366 is only ~2:1 contrast,
+       under the 3:1 WCAG AA minimum for icons/UI components. */
+    color:var(--color-text-primary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:var(--shadow-float);
+    z-index:200;
+    text-decoration:none;
+    animation:wa-pulse 2.6s ease-in-out infinite;
+  }
+  .whatsapp-float svg{ width:28px; height:28px; }
+  .whatsapp-float:hover, .whatsapp-float:focus-visible{ background:var(--color-whatsapp-dark); animation-play-state:paused; }
+  @keyframes wa-pulse{
+    0%,100%{ transform:scale(1); }
+    50%{ transform:scale(1.08); }
+  }
+
+  /* ==========================================================
+     REVEAL ON SCROLL
+     ========================================================== */
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+  .visually-hidden{
+    position:absolute;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
+
+<!-- ==========================================================
+     HEADER
+     ========================================================== -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#inicio" class="logo" aria-label="Inova Prime — página inicial">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3c-2.5 0-4.5 1.6-5 4-.6 3-.2 6 .8 9 .4 1.2.9 2.5 1.7 3.4.4.4 1 .4 1.4-.1.5-.7.7-2 .9-3.1.1-.9.4-1.6 1.2-1.6s1.1.7 1.2 1.6c.2 1.1.4 2.4.9 3.1.4.5 1 .5 1.4.1.8-.9 1.3-2.2 1.7-3.4 1-3 1.4-6 .8-9-.5-2.4-2.5-4-5-4z" stroke="#FFFFFF" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      Inova Prime
+    </a>
+
+    <nav class="main-nav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#tratamentos">Tratamentos</a></li>
+        <li><a href="#especialista">Especialista</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-primary" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">
+        <span aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 8.7c.2-.5.5-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.6 1.5.7 1.6.1.2.1.3 0 .5-.1.2-.2.3-.4.5-.2.2-.4.3-.2.6.2.4 1 1.5 2.1 2.1.5.3.8.2 1-.1.2-.2.7-.8.9-1 .2-.2.3-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.4 0 .2 0 .9-.4 1.4-.4.5-1.3.9-2.2.8-.8-.1-2.6-.9-4.2-2.5-1.6-1.6-2.3-3.3-2.5-4.2-.1-.9.2-1.7.7-2.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+        </span>
+        Agendar
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menu de navegação">
+        <svg id="navToggleIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="#0B1120" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Navegação móvel">
+    <ul>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#tratamentos">Tratamentos</a></li>
+      <li><a href="#especialista">Especialista</a></li>
+      <li><a href="#equipe">Equipe</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a class="btn btn-primary" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">Agendar</a>
+  </nav>
+</header>
+
+<main id="conteudo-principal">
+
+  <!-- ==========================================================
+       1. HERO
+       ========================================================== -->
+  <section id="inicio" class="hero" aria-labelledby="hero-title">
+    <video class="hero-bg-video" id="heroVideo" autoplay muted loop playsinline aria-hidden="true">
+      <source src="V%C3%ADdeo/Dental_clinic_interior_view_202608160859.mp4" type="video/mp4">
+    </video>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow eyebrow--light">Odontologia de excelência · Lavras/MG</span>
+        <h1 id="hero-title">Seu sorriso merece o melhor cuidado. A Inova Prime existe para transformar essa experiência.</h1>
+        <p class="hero-subtitle">Estrutura moderna, tecnologia de ponta e uma equipe que trata cada paciente com atenção genuína, do primeiro contato ao resultado final.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 8.7c.2-.5.5-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.6 1.5.7 1.6.1.2.1.3 0 .5-.1.2-.2.3-.4.5-.2.2-.4.3-.2.6.2.4 1 1.5 2.1 2.1.5.3.8.2 1-.1.2-.2.7-.8.9-1 .2-.2.3-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.4 0 .2 0 .9-.4 1.4-.4.5-1.3.9-2.2.8-.8-.1-2.6-.9-4.2-2.5-1.6-1.6-2.3-3.3-2.5-4.2-.1-.9.2-1.7.7-2.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            </span>
+            Agendar pelo WhatsApp
+          </a>
+          <a class="btn btn-secondary--inverse" href="#tratamentos">Conhecer os tratamentos</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="stat-number">5★</span>
+            <span class="stat-label">Avaliação no Google</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-number">+6</span>
+            <span class="stat-label">Anos cuidando de sorrisos em Lavras</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-number">+2.000</span>
+            <span class="stat-label">Pacientes atendidos</span>
+          </div>
+          <div class="hero-stat">
+            <span class="stat-number">2</span>
+            <span class="stat-label">Consultórios equipados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       2. SOBRE NÓS
+       ========================================================== -->
+  <section id="sobre" aria-labelledby="sobre-title">
+    <div class="container">
+      <div class="about-layout">
+        <div class="about-intro reveal">
+          <span class="eyebrow">Sobre a clínica</span>
+          <h2 id="sobre-title">Sobre a Inova Prime</h2>
+          <p>A Inova Prime nasceu do propósito de oferecer uma odontologia diferente: próxima, cuidadosa e tecnicamente impecável. Há mais de 6 anos atendendo em Lavras-MG, construímos uma reputação baseada em confiança, resultado e respeito ao tempo e às necessidades de cada paciente.</p>
+        </div>
+
+        <div class="about-gallery reveal">
+          <img class="about-photo-wide" src="Sobre%20a%20Odontoprime/Inova%20prime2.jpg" alt="Fachada da clínica Inova Prime" loading="lazy" width="860" height="645">
+          <img class="about-photo-square" src="Sobre%20a%20Odontoprime/Inova%20prime3.jpg" alt="Consultório odontológico moderno e equipado da Inova Prime" loading="lazy" width="440" height="440">
+        </div>
+      </div>
+
+      <div class="grid grid-1 grid-3-desktop">
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5Z"/></svg>
+          </div>
+          <h3>Atendimento Próximo e Humano</h3>
+          <p>Escutamos antes de tratar. Cada plano de tratamento é desenhado a partir da real necessidade e do objetivo de quem está na cadeira.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
+          </div>
+          <h3>Tecnologia a Favor do Seu Sorriso</h3>
+          <p>Equipamentos modernos e materiais de alta qualidade para diagnósticos mais precisos e tratamentos mais previsíveis.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Referência em Lavras</h3>
+          <p>Uma clínica construída pela indicação de quem já foi atendido — nossa maior prova de que o cuidado que oferecemos faz diferença.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       3. ESPECIALISTA RESPONSÁVEL
+       ========================================================== -->
+  <section id="especialista" class="section-alt" aria-labelledby="especialista-title">
+    <div class="container">
+      <span class="eyebrow">Conheça a responsável técnica</span>
+      <h2 id="especialista-title" class="visually-hidden">Especialista responsável</h2>
+
+      <div class="specialist" style="margin-top:var(--space-md);">
+        <div class="specialist-photo reveal">
+          <img src="Dra.%20Juliana%20Corr%C3%AAa/download.jpg"
+               alt="Retrato da Dra. Juliana Corrêa, responsável técnica da Inova Prime"
+               loading="lazy" width="760" height="950">
+        </div>
+
+        <div class="specialist-info reveal">
+          <h3 class="specialist-name" style="font-size:26px;">Dra. Juliana Corrêa</h3>
+          <p class="specialist-role">Estética &amp; Prótese · Diretora Clínica · CRO-MG 57108</p>
+          <p class="specialist-text">Responsável técnica da Inova Prime, a Dra. Juliana é referência em transformações de sorriso na região de Lavras. À frente da equipe, ela conduz cada tratamento unindo técnica apurada, escuta atenta e um cuidado que vai muito além do consultório.</p>
+
+          <div class="specialist-list">
+            <div class="specialist-item">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <h3>Formação Acadêmica</h3>
+                <p>Cirurgiã-dentista formada por [instituição a definir].</p>
+              </div>
+            </div>
+            <div class="specialist-item">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <h3>Especialização</h3>
+                <p>Pós-graduada em Estética e Reabilitação Oral.</p>
+              </div>
+            </div>
+            <div class="specialist-item">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <h3>Aperfeiçoamento Contínuo</h3>
+                <p>Atualização constante em técnicas modernas de odontologia estética.</p>
+              </div>
+            </div>
+            <div class="specialist-item">
+              <span class="dot" aria-hidden="true"></span>
+              <div>
+                <h3>Compromisso com a Comunidade</h3>
+                <p>Participação em ações sociais de saúde bucal voltadas a famílias de Lavras e região.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       4. NOSSA EQUIPE
+       ========================================================== -->
+  <section id="equipe" aria-labelledby="equipe-title">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">Nossa equipe</span>
+        <h2 id="equipe-title">Nossa equipe</h2>
+        <p>Profissionais dedicados ao seu sorriso</p>
+      </div>
+
+      <div class="team-grid">
+        <article class="team-card reveal">
+          <img class="team-photo" src="Nossa%20equipe/Dra.%20Juliana%20Corr%C3%AAa%20Est%C3%A9tica%20%26%20Pr%C3%B3tese%20%C2%B7%20Diretora%20Cl%C3%ADnica.jpg"
+               alt="Foto de Dra. Juliana Corrêa, Diretora Clínica da Inova Prime" loading="lazy" width="420" height="420">
+          <h3>Dra. Juliana Corrêa</h3>
+          <p class="team-role">Estética &amp; Prótese · Diretora Clínica</p>
+          <p class="team-cro">CRO-MG 57108</p>
+        </article>
+
+        <article class="team-card reveal">
+          <img class="team-photo" src="Nossa%20equipe/Dr.%20Jorlan%20Dion%C3%ADsio%20Periodontista%20%26%20Implantodontista.jpg"
+               alt="Foto de Dr. Jorlan Dionísio, especialista em Periodontia e Implantodontia" loading="lazy" width="420" height="420">
+          <h3>Dr. Jorlan Dionísio</h3>
+          <p class="team-role">Periodontista &amp; Implantodontista</p>
+          <p class="team-cro">CRO-MG 28343</p>
+        </article>
+
+        <article class="team-card reveal">
+          <img class="team-photo" src="Nossa%20equipe/Dr.%20Kesley%20Eliezer%20Cirurgi%C3%A3o%20Geral.jpg"
+               alt="Foto de Dr. Kesley Eliezer, Cirurgião Geral da Inova Prime" loading="lazy" width="420" height="420">
+          <h3>Dr. Kesley Eliezer</h3>
+          <p class="team-role">Cirurgião Geral</p>
+          <p class="team-cro">CRO-MG 75368</p>
+        </article>
+
+        <article class="team-card reveal">
+          <img class="team-photo" src="Nossa%20equipe/Dra.%20Larissa%20Vit%C3%B3ria%20Ortodontista.jpg"
+               alt="Foto de Dra. Larissa Vitória, especialista em Ortodontia" loading="lazy" width="420" height="420">
+          <h3>Dra. Larissa Vitória</h3>
+          <p class="team-role">Ortodontista</p>
+          <p class="team-cro">CRO-MG 54846</p>
+        </article>
+
+        <article class="team-card reveal">
+          <img class="team-photo" src="Nossa%20equipe/Dra.%20Lilian%20Coelho%20Endodontista.jpg"
+               alt="Foto de Dra. Lilian Coelho, especialista em Endodontia" loading="lazy" width="420" height="420">
+          <h3>Dra. Lilian Coelho</h3>
+          <p class="team-role">Endodontista</p>
+          <p class="team-cro">CRO-MG 29456</p>
+        </article>
+
+        <article class="team-card reveal">
+          <img class="team-photo" src="Nossa%20equipe/N%C3%A1ssara%20Mikaela%20Secret%C3%A1ria.jpg"
+               alt="Foto de Nássara Mikaela, Secretária da Inova Prime" loading="lazy" width="420" height="420">
+          <h3>Nássara Mikaela</h3>
+          <p class="team-role">Secretária</p>
+        </article>
+
+        <article class="team-card reveal">
+          <img class="team-photo" src="Nossa%20equipe/Keyde%20Sales%20Servi%C3%A7os%20Gerais.jpg"
+               alt="Foto de Keyde Sales, responsável pelos Serviços Gerais" loading="lazy" width="420" height="420">
+          <h3>Keyde Sales</h3>
+          <p class="team-role">Serviços Gerais</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       5. DIFERENCIAIS
+       ========================================================== -->
+  <section class="section-alt" aria-labelledby="diferenciais-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Nossos diferenciais</span>
+        <h2 id="diferenciais-title">Por que escolher a Inova Prime?</h2>
+      </div>
+
+      <div class="grid grid-1 grid-2-tablet grid-3-desktop">
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 12 3l9 9"/><path d="M5 10v10h14V10"/></svg>
+          </div>
+          <h3>Ambiente Pensado para Você</h3>
+          <p>Consultórios modernos, confortáveis e climatizados, projetados para reduzir a ansiedade e tornar cada visita mais agradável.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14c2.9.4 5 2.3 5 6"/></svg>
+          </div>
+          <h3>Equipe Multidisciplinar</h3>
+          <p>Especialistas de diferentes áreas trabalhando em conjunto para entregar o melhor resultado em cada etapa do tratamento.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          </div>
+          <h3>Agilidade no Atendimento</h3>
+          <p>Agendamento simples pelo WhatsApp, horários flexíveis e pontualidade — porque o seu tempo importa.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg>
+          </div>
+          <h3>Tratamento Personalizado</h3>
+          <p>Nenhum sorriso é igual ao outro. Por isso, cada plano é construído sob medida, respeitando sua anatomia e seus objetivos.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          </div>
+          <h3>Precisão Diagnóstica</h3>
+          <p>Equipamentos modernos para diagnósticos mais exatos e tratamentos com maior previsibilidade de resultado.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/><path d="M3 12a9 9 0 1 1 3.3 6.9" opacity="0"/></svg>
+          </div>
+          <h3>Acompanhamento Contínuo</h3>
+          <p>Nosso cuidado não termina na cadeira do consultório. Acompanhamos sua evolução em cada etapa do tratamento.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       6. TRATAMENTOS
+       ========================================================== -->
+  <section id="tratamentos" aria-labelledby="tratamentos-title">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">O que tratamos</span>
+        <h2 id="tratamentos-title">Nossos tratamentos</h2>
+        <p>Cuidado completo para todas as fases do seu sorriso, da prevenção à estética avançada.</p>
+      </div>
+
+      <div class="treatments-grid">
+        <article class="card treatment-card reveal">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-2.5 0-4.5 1.6-5 4-.6 3-.2 6 .8 9 .4 1.2.9 2.5 1.7 3.4.4.4 1 .4 1.4-.1.5-.7.7-2 .9-3.1.1-.9.4-1.6 1.2-1.6s1.1.7 1.2 1.6c.2 1.1.4 2.4.9 3.1.4.5 1 .5 1.4.1.8-.9 1.3-2.2 1.7-3.4 1-3 1.4-6 .8-9-.5-2.4-2.5-4-5-4z"/></svg></div>
+          <h3>Clareamento Dental</h3>
+          <p>Um sorriso mais claro e uniforme, com procedimento seguro e resultado visível já nas primeiras sessões.</p>
+          <a class="btn-link" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">Saiba mais <span class="arrow" aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card treatment-card reveal">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 4v16M16 4v16"/></svg></div>
+          <h3>Facetas e Lentes de Contato Dental</h3>
+          <p>Lâminas finas que corrigem cor, formato e pequenas imperfeições, com resultado natural e sofisticado.</p>
+          <a class="btn-link" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">Saiba mais <span class="arrow" aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card treatment-card reveal">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12c2-3 5-4.5 8-4.5s6 1.5 8 4.5c-2 3-5 4.5-8 4.5s-6-1.5-8-4.5Z"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <h3>Facetas em Resina</h3>
+          <p>Solução estética rápida e acessível para harmonizar o sorriso sem desgaste excessivo do dente.</p>
+          <a class="btn-link" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">Saiba mais <span class="arrow" aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card treatment-card reveal">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7c4-2 12-2 16 0M4 12c4-2 12-2 16 0M4 17c4-2 12-2 16 0"/></svg></div>
+          <h3>Alinhadores Invisíveis</h3>
+          <p>Correção do alinhamento dentário de forma discreta, confortável e removível — para o dia a dia sem interrupções.</p>
+          <a class="btn-link" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">Saiba mais <span class="arrow" aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card treatment-card reveal">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16M4 15h16" /><rect x="4" y="6" width="16" height="12" rx="2"/></svg></div>
+          <h3>Ortodontia Convencional</h3>
+          <p>Aparelhos fixos com acompanhamento especializado para resultados duradouros em qualquer idade.</p>
+          <a class="btn-link" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">Saiba mais <span class="arrow" aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card treatment-card reveal">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M12 9c-2 0-3 1.3-3 3v9M12 9c2 0 3 1.3 3 3v9"/></svg></div>
+          <h3>Implante Dentário</h3>
+          <p>Devolução da função mastigatória e da estética com implantes de qualidade e acompanhamento próximo.</p>
+          <a class="btn-link" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">Saiba mais <span class="arrow" aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card treatment-card reveal">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20V10c0-3.3 2.7-6 6-6s6 2.7 6 6v10"/><path d="M6 20h12"/></svg></div>
+          <h3>Prótese Dentária</h3>
+          <p>Reabilitação oral com conforto e naturalidade, recuperando a confiança para sorrir e mastigar sem preocupação.</p>
+          <a class="btn-link" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">Saiba mais <span class="arrow" aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card treatment-card reveal">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg></div>
+          <h3>Limpeza e Prevenção</h3>
+          <p>Remoção profissional de placa e tártaro para manter a saúde bucal em dia e prevenir problemas futuros.</p>
+          <a class="btn-link" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">Saiba mais <span class="arrow" aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card treatment-card reveal">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 22v-6M9 8h6l-1 8H10L9 8Z"/></svg></div>
+          <h3>Tratamento de Canal (Endodontia)</h3>
+          <p>Técnica precisa para eliminar a dor e preservar o dente natural com segurança.</p>
+          <a class="btn-link" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">Saiba mais <span class="arrow" aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card treatment-card reveal">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12c2.5-4 5-6 8-6s5.5 2 8 6c-2.5 4-5 6-8 6s-5.5-2-8-6Z"/></svg></div>
+          <h3>Periodontia</h3>
+          <p>Diagnóstico e tratamento das gengivas, base essencial para um sorriso saudável e duradouro.</p>
+          <a class="btn-link" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">Saiba mais <span class="arrow" aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card treatment-card reveal">
+          <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M18 3v18M6 8h12M6 16h12"/></svg></div>
+          <h3>Cirurgias Odontológicas</h3>
+          <p>Procedimentos cirúrgicos realizados com técnica, segurança e cuidado, incluindo extrações e outras intervenções.</p>
+          <a class="btn-link" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">Saiba mais <span class="arrow" aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       7. RESULTADOS / ANTES E DEPOIS
+       ========================================================== -->
+  <section class="section-alt" aria-labelledby="resultados-title">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">Resultados</span>
+        <h2 id="resultados-title">Sorrisos transformados</h2>
+        <p>Resultados reais de quem confiou no nosso cuidado.</p>
+      </div>
+
+      <div class="results-card reveal">
+        <div class="results-carousel" id="resultsCarousel" role="region" aria-roledescription="carrossel" aria-label="Resultados de tratamentos">
+          <div class="results-track" id="resultsTrack">
+            <div class="result-item" role="group" aria-roledescription="slide" aria-label="1 de 5">
+              <img class="result-photo" src="Sorrisos%20Transformados/Clareamento1.jpeg" alt="Sorriso antes e depois do clareamento dental de paciente da Inova Prime" loading="lazy" width="1792" height="2400">
+              <p class="result-caption">Clareamento Dental — resultado real de paciente</p>
+            </div>
+
+            <div class="result-item" role="group" aria-roledescription="slide" aria-label="2 de 5">
+              <img class="result-photo" src="Sorrisos%20Transformados/Clareamento2.jpeg.jpeg" alt="Sorriso antes e depois do clareamento dental de paciente da Inova Prime" loading="lazy" width="1792" height="2400">
+              <p class="result-caption">Clareamento Dental — resultado real de paciente</p>
+            </div>
+
+            <div class="result-item" role="group" aria-roledescription="slide" aria-label="3 de 5">
+              <img class="result-photo" src="Sorrisos%20Transformados/Clareamento3.jpeg.jpeg" alt="Sorriso antes e depois do clareamento dental de paciente da Inova Prime" loading="lazy" width="1792" height="2400">
+              <p class="result-caption">Clareamento Dental — resultado real de paciente</p>
+            </div>
+
+            <div class="result-item" role="group" aria-roledescription="slide" aria-label="4 de 5">
+              <img class="result-photo" src="Sorrisos%20Transformados/Clareamento4.jpeg.jpeg" alt="Sorriso antes e depois do clareamento dental de paciente da Inova Prime" loading="lazy" width="1792" height="2400">
+              <p class="result-caption">Clareamento Dental — resultado real de paciente</p>
+            </div>
+
+            <div class="result-item" role="group" aria-roledescription="slide" aria-label="5 de 5">
+              <img class="result-photo" src="Sorrisos%20Transformados/Clareamento5.jpeg.jpeg" alt="Sorriso antes e depois do clareamento dental de paciente da Inova Prime" loading="lazy" width="1792" height="2400">
+              <p class="result-caption">Clareamento Dental — resultado real de paciente</p>
+            </div>
+          </div>
+
+          <button class="carousel-arrow carousel-arrow--prev" id="resultsPrev" aria-label="Resultado anterior">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="carousel-arrow carousel-arrow--next" id="resultsNext" aria-label="Próximo resultado">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <div class="results-dots" id="resultsDots">
+          <button class="results-dot is-active" aria-label="Ver resultado 1 de clareamento dental" aria-current="true"></button>
+          <button class="results-dot" aria-label="Ver resultado 2 de clareamento dental"></button>
+          <button class="results-dot" aria-label="Ver resultado 3 de clareamento dental"></button>
+          <button class="results-dot" aria-label="Ver resultado 4 de clareamento dental"></button>
+          <button class="results-dot" aria-label="Ver resultado 5 de clareamento dental"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       8. DEPOIMENTOS
+       ========================================================== -->
+  <section id="depoimentos" aria-labelledby="depoimentos-title">
+    <div class="container">
+      <div class="section-head section-head--center reveal">
+        <span class="eyebrow">Depoimentos</span>
+        <h2 id="depoimentos-title">O que nossos pacientes dizem</h2>
+        <p>Histórias reais de quem transformou o sorriso com a gente.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <blockquote class="testimonial-card reveal">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</p>
+          <p class="testimonial-text">Sempre tive receio de ir ao dentista, mas na Inova Prime me senti acolhido desde o primeiro atendimento. Equipe atenciosa e resultado incrível!</p>
+          <footer class="testimonial-author">
+            <img data-ph data-w="96" data-h="96" data-c1="#2563EB" data-c2="#1E3A8A" alt="" role="presentation" loading="lazy" width="48" height="48">
+            <span>Paciente Inova Prime · Avaliação no Google ★★★★★</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="testimonial-card reveal">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</p>
+          <p class="testimonial-text">Estrutura impecável, equipe muito preparada e um cuidado que faz toda diferença. Recomendo de olhos fechados.</p>
+          <footer class="testimonial-author">
+            <img data-ph data-w="96" data-h="96" data-c1="#2563EB" data-c2="#1E3A8A" alt="" role="presentation" loading="lazy" width="48" height="48">
+            <span>Paciente Inova Prime · Avaliação no Google ★★★★★</span>
+          </footer>
+        </blockquote>
+
+        <blockquote class="testimonial-card reveal">
+          <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="testimonial-stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</p>
+          <p class="testimonial-text">Fiz meu clareamento e as facetas com a equipe da Inova Prime. Superou todas as minhas expectativas!</p>
+          <footer class="testimonial-author">
+            <img data-ph data-w="96" data-h="96" data-c1="#2563EB" data-c2="#1E3A8A" alt="" role="presentation" loading="lazy" width="48" height="48">
+            <span>Paciente Inova Prime · Avaliação no Google ★★★★★</span>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       9. LOCALIZAÇÃO E CONTATO
+       ========================================================== -->
+  <section id="contato" class="section-alt" aria-labelledby="localizacao-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Onde estamos</span>
+        <h2 id="localizacao-title">Onde estamos</h2>
+        <p>Venha nos conhecer</p>
+      </div>
+
+      <div class="location">
+        <div class="location-map reveal">
+          <img src="Onde%20Estamos/Inova%20prime2.jpg"
+               alt="Fachada da Inova Prime, Av. Dr. Silvio Menicucci, 1993, Presidente Kennedy, Lavras/MG" loading="lazy" width="860" height="645">
+        </div>
+
+        <div class="location-info reveal">
+          <div class="location-block">
+            <h3>Endereço</h3>
+            <p>Av. Dr. Silvio Menicucci, 1993 — Presidente Kennedy<br>Lavras/MG · CEP 37203-696</p>
+          </div>
+
+          <div class="location-block">
+            <h3>Horário de atendimento</h3>
+            <dl>
+              <div class="hours-row"><dt>Segunda a Sexta</dt><dd>08h00 – 18h00</dd></div>
+              <div class="hours-row"><dt>Sábado</dt><dd>08h00 – 12h00</dd></div>
+              <div class="hours-row"><dt>Domingo</dt><dd>Fechado</dd></div>
+            </dl>
+          </div>
+
+          <div class="location-actions">
+            <a class="btn btn-primary" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 8.7c.2-.5.5-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.6 1.5.7 1.6.1.2.1.3 0 .5-.1.2-.2.3-.4.5-.2.2-.4.3-.2.6.2.4 1 1.5 2.1 2.1.5.3.8.2 1-.1.2-.2.7-.8.9-1 .2-.2.3-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.4 0 .2 0 .9-.4 1.4-.4.5-1.3.9-2.2.8-.8-.1-2.6-.9-4.2-2.5-1.6-1.6-2.3-3.3-2.5-4.2-.1-.9.2-1.7.7-2.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+              </span>
+              Agendar pelo WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Av.+Dr.+Silvio+Menicucci%2C+1993+-+Presidente+Kennedy%2C+Lavras+-+MG%2C+37203-696" target="_blank" rel="noopener noreferrer" aria-label="Ver localização da Inova Prime no Google Maps (abre em nova aba)">Ver no Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================
+       10. CTA FINAL
+       ========================================================== -->
+  <section aria-labelledby="cta-final-title">
+    <div class="container">
+      <div class="cta-final reveal">
+        <h2 id="cta-final-title">Seu sorriso é a nossa prioridade</h2>
+        <p>Marque agora sua consulta de avaliação e descubra como a Inova Prime pode transformar a relação que você tem com o espelho.</p>
+        <a class="btn btn-primary" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 8.7c.2-.5.5-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.6 1.5.7 1.6.1.2.1.3 0 .5-.1.2-.2.3-.4.5-.2.2-.4.3-.2.6.2.4 1 1.5 2.1 2.1.5.3.8.2 1-.1.2-.2.7-.8.9-1 .2-.2.3-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.4 0 .2 0 .9-.4 1.4-.4.5-1.3.9-2.2.8-.8-.1-2.6-.9-4.2-2.5-1.6-1.6-2.3-3.3-2.5-4.2-.1-.9.2-1.7.7-2.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          </span>
+          Agendar pelo WhatsApp
+        </a>
+        <p class="phone">Telefone/WhatsApp: <a href="tel:+5535997536599">(35) 99753-6599</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==========================================================
+     11. RODAPÉ
+     ========================================================== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span class="footer-logo">Inova Prime</span>
+    <p>© 2026 Inova Prime Odontologia · CRO-MG 57108 · Todos os direitos reservados</p>
+    <p>Lavras · Minas Gerais · Brasil</p>
+  </div>
+</footer>
+
+<!-- BOTÃO FLUTUANTE WHATSAPP -->
+<a class="whatsapp-float" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer" aria-label="Falar com a Inova Prime no WhatsApp (abre em nova aba)">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.6"/>
+    <path d="M8.5 8.7c.2-.5.5-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.6 1.5.7 1.6.1.2.1.3 0 .5-.1.2-.2.3-.4.5-.2.2-.4.3-.2.6.2.4 1 1.5 2.1 2.1.5.3.8.2 1-.1.2-.2.7-.8.9-1 .2-.2.3-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.4 0 .2 0 .9-.4 1.4-.4.5-1.3.9-2.2.8-.8-.1-2.6-.9-4.2-2.5-1.6-1.6-2.3-3.3-2.5-4.2-.1-.9.2-1.7.7-2.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+  </svg>
+</a>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- Placeholder images (self-contained, no external deps) ---------- */
+  function placeholderSVG(w, h, c1, c2){
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '">'
+      + '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">'
+      + '<stop offset="0" stop-color="' + c1 + '"/><stop offset="1" stop-color="' + c2 + '"/>'
+      + '</linearGradient></defs>'
+      + '<rect width="' + w + '" height="' + h + '" fill="url(#g)"/>'
+      + '<g fill="rgba(255,255,255,0.8)">'
+      + '<circle cx="' + (w/2) + '" cy="' + (h*0.42) + '" r="' + (Math.min(w,h)*0.15) + '"/>'
+      + '<path d="M ' + (w*0.24) + ' ' + (h*0.82) + ' Q ' + (w/2) + ' ' + (h*0.6) + ' ' + (w*0.76) + ' ' + (h*0.82) + ' L ' + (w*0.76) + ' ' + (h*1.02) + ' L ' + (w*0.24) + ' ' + (h*1.02) + ' Z"/>'
+      + '</g></svg>';
+    return 'data:image/svg+xml,' + encodeURIComponent(svg);
+  }
+
+  var phImages = document.querySelectorAll('img[data-ph]');
+  phImages.forEach(function(img){
+    var w = img.getAttribute('data-w') || 400;
+    var h = img.getAttribute('data-h') || 400;
+    var c1 = img.getAttribute('data-c1') || '#2563EB';
+    var c2 = img.getAttribute('data-c2') || '#1E3A8A';
+    /* Embedded data-URI placeholders carry no network cost, so lazy-loading
+       them buys nothing — and assigning src via JS while loading="lazy" is
+       set fails to decode in some engines. Switch to eager only for these
+       generated placeholders; real photos should keep the authored
+       loading="lazy" from the markup. */
+    img.loading = 'eager';
+    img.src = placeholderSVG(w, h, c1, c2);
+  });
+
+  /* ---------- Menu mobile ---------- */
+  var navToggle = document.getElementById('navToggle');
+  var mobileNav = document.getElementById('mobileNav');
+  var navToggleIcon = document.getElementById('navToggleIcon');
+
+  var iconMenu = '<path d="M4 6h16M4 12h16M4 18h16" stroke="#0B1120" stroke-width="1.8" stroke-linecap="round"/>';
+  var iconClose = '<path d="M6 6l12 12M18 6L6 18" stroke="#0B1120" stroke-width="1.8" stroke-linecap="round"/>';
+
+  function closeMobileNav(){
+    mobileNav.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', 'Abrir menu de navegação');
+    navToggleIcon.innerHTML = iconMenu;
+  }
+
+  function openMobileNav(){
+    mobileNav.classList.add('is-open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.setAttribute('aria-label', 'Fechar menu de navegação');
+    navToggleIcon.innerHTML = iconClose;
+  }
+
+  if(navToggle){
+    navToggle.addEventListener('click', function(){
+      var isOpen = mobileNav.classList.contains('is-open');
+      if(isOpen){ closeMobileNav(); } else { openMobileNav(); }
+    });
+
+    mobileNav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', closeMobileNav);
+    });
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && mobileNav.classList.contains('is-open')){
+        closeMobileNav();
+        navToggle.focus();
+      }
+    });
+  }
+
+  /* ---------- Hero video: respect reduced-motion preference ---------- */
+  var heroVideo = document.getElementById('heroVideo');
+  if(heroVideo && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    heroVideo.pause();
+    heroVideo.removeAttribute('autoplay');
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealEls = document.querySelectorAll('.reveal');
+
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  } else {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(function(el){ observer.observe(el); });
+  }
+
+  /* ---------- Results carousel ---------- */
+  var track = document.getElementById('resultsTrack');
+  if(track){
+    var carousel = document.getElementById('resultsCarousel');
+    var carouselCard = track.closest('.results-card');
+    var slides = track.querySelectorAll('.result-item');
+    var dots = document.querySelectorAll('#resultsDots .results-dot');
+    var prevBtn = document.getElementById('resultsPrev');
+    var nextBtn = document.getElementById('resultsNext');
+    var total = slides.length;
+    var current = 0;
+    var carouselReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var AUTOPLAY_MS = 5000;
+    var timer = null;
+
+    if(!carouselReduceMotion){
+      track.classList.add('has-transition');
+      carousel.classList.add('has-transition');
+    }
+
+    function syncHeight(){
+      carousel.style.height = slides[current].offsetHeight + 'px';
+    }
+
+    function goTo(index){
+      current = (index + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      syncHeight();
+      dots.forEach(function(dot, i){
+        var isActive = i === current;
+        dot.classList.toggle('is-active', isActive);
+        if(isActive){ dot.setAttribute('aria-current', 'true'); }
+        else { dot.removeAttribute('aria-current'); }
+      });
+      slides.forEach(function(slide, i){
+        slide.setAttribute('aria-hidden', i === current ? 'false' : 'true');
+      });
+    }
+
+    window.addEventListener('resize', syncHeight);
+
+    function nextSlide(){ goTo(current + 1); }
+    function prevSlide(){ goTo(current - 1); }
+
+    function stopAutoplay(){
+      if(timer){ clearInterval(timer); timer = null; }
+    }
+    function startAutoplay(){
+      if(carouselReduceMotion) return;
+      stopAutoplay();
+      timer = setInterval(nextSlide, AUTOPLAY_MS);
+    }
+    function restartAutoplay(){
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    prevBtn.addEventListener('click', function(){ prevSlide(); restartAutoplay(); });
+    nextBtn.addEventListener('click', function(){ nextSlide(); restartAutoplay(); });
+    dots.forEach(function(dot, i){
+      dot.addEventListener('click', function(){ goTo(i); restartAutoplay(); });
+    });
+
+    carouselCard.addEventListener('mouseenter', stopAutoplay);
+    carouselCard.addEventListener('mouseleave', startAutoplay);
+    carouselCard.addEventListener('focusin', stopAutoplay);
+    carouselCard.addEventListener('focusout', function(e){
+      if(!carouselCard.contains(e.relatedTarget)){ startAutoplay(); }
+    });
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden){ stopAutoplay(); } else { startAutoplay(); }
+    });
+
+    goTo(0);
+    startAutoplay();
+  }
+})();
+</script>
+
+</body>
+</html>

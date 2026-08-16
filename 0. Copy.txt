@@ -1,0 +1,242 @@
+# Odontoprime — Textos da Landing Page
+Dentista em Lavras/MG
+
+---
+
+## Menu de Navegação
+
+- Início
+- Sobre
+- Tratamentos
+- Especialista
+- Equipe
+- Depoimentos
+- Contato
+- **Botão CTA:** Agendar
+
+---
+
+## 1. Seção Hero (Topo)
+
+**Categoria:** Odontologia de excelência · Lavras/MG
+
+**Título principal:**
+Seu sorriso merece o melhor cuidado.
+A Odontoprime existe para transformar essa experiência.
+
+**Subtítulo:**
+Estrutura moderna, tecnologia de ponta e uma equipe que trata cada paciente com atenção genuína, do primeiro contato ao resultado final.
+
+**Botões CTA:**
+- Agendar pelo WhatsApp
+- Conhecer os tratamentos
+
+**Indicadores rápidos (números de destaque):**
+- 5★ Avaliação no Google
+- +6 Anos cuidando de sorrisos em Lavras
+- +2.000 Pacientes atendidos
+- 2 Consultórios equipados
+
+---
+
+## 2. Seção Sobre Nós
+
+**Título:** Sobre a Odontoprime
+
+**Texto:**
+A Odontoprime nasceu do propósito de oferecer uma odontologia diferente: próxima, cuidadosa e tecnicamente impecável. Há mais de 6 anos atendendo em Lavras-MG, construímos uma reputação baseada em confiança, resultado e respeito ao tempo e às necessidades de cada paciente.
+
+**Cards de destaque:**
+
+1. **Atendimento Próximo e Humano**
+Escutamos antes de tratar. Cada plano de tratamento é desenhado a partir da real necessidade e do objetivo de quem está na cadeira.
+
+2. **Tecnologia a Favor do Seu Sorriso**
+Equipamentos modernos e materiais de alta qualidade para diagnósticos mais precisos e tratamentos mais previsíveis.
+
+3. **Referência em Lavras**
+Uma clínica construída pela indicação de quem já foi atendido — nossa maior prova de que o cuidado que oferecemos faz diferença.
+
+---
+
+## 3. Seção Especialista Responsável
+
+**Subtítulo:** Conheça a responsável técnica
+
+**Nome:** Dra. [Nome da Dentista]
+**Especialidade:** Estética e Reabilitação Oral · CRO-MG [número]
+
+**Texto de apresentação:**
+Responsável técnica da Odontoprime, a Dra. [Nome] é referência em transformações de sorriso na região de Lavras. À frente da equipe, ela conduz cada tratamento unindo técnica apurada, escuta atenta e um cuidado que vai muito além do consultório.
+
+**Tópicos de formação:**
+- **Formação Acadêmica** — Cirurgiã-dentista formada por [instituição a definir].
+- **Especialização** — Pós-graduada em Estética e Reabilitação Oral.
+- **Aperfeiçoamento Contínuo** — Atualização constante em técnicas modernas de odontologia estética.
+- **Compromisso com a Comunidade** — Participação em ações sociais de saúde bucal voltadas a famílias de Lavras e região.
+
+---
+
+## 4. Seção Nossa Equipe
+
+**Título:** Nossa equipe
+**Subtítulo:** Profissionais dedicados ao seu sorriso
+
+**Modelo de card (repetir para cada membro):**
+- Nome do profissional
+- Especialidade · Função na clínica
+- CRO-MG [número] (quando aplicável)
+
+**Sugestão de especialidades a compor a equipe:**
+- Dra. [Nome] — Estética e Reabilitação Oral · Diretora Clínica
+- Dr. [Nome] — Implantodontia e Periodontia
+- Dr. [Nome] — Cirurgia Bucomaxilofacial
+- Dra. [Nome] — Ortodontia
+- Dra. [Nome] — Endodontia
+- [Nome] — Recepção e Atendimento
+- [Nome] — Serviços Gerais
+
+---
+
+## 5. Seção Diferenciais
+
+**Título:** Por que escolher a Odontoprime?
+
+1. **Ambiente Pensado para Você**
+Consultórios modernos, confortáveis e climatizados, projetados para reduzir a ansiedade e tornar cada visita mais agradável.
+
+2. **Equipe Multidisciplinar**
+Especialistas de diferentes áreas trabalhando em conjunto para entregar o melhor resultado em cada etapa do tratamento.
+
+3. **Agilidade no Atendimento**
+Agendamento simples pelo WhatsApp, horários flexíveis e pontualidade — porque o seu tempo importa.
+
+4. **Tratamento Personalizado**
+Nenhum sorriso é igual ao outro. Por isso, cada plano é construído sob medida, respeitando sua anatomia e seus objetivos.
+
+5. **Precisão Diagnóstica**
+Equipamentos modernos para diagnósticos mais exatos e tratamentos com maior previsibilidade de resultado.
+
+6. **Acompanhamento Contínuo**
+Nosso cuidado não termina na cadeira do consultório. Acompanhamos sua evolução em cada etapa do tratamento.
+
+---
+
+## 6. Seção Tratamentos
+
+**Título:** Nossos tratamentos
+**Subtítulo:** Cuidado completo para todas as fases do seu sorriso, da prevenção à estética avançada.
+
+**Lista de tratamentos (card + breve descrição + "Saiba mais →"):**
+
+1. **Clareamento Dental**
+Um sorriso mais claro e uniforme, com procedimento seguro e resultado visível já nas primeiras sessões.
+
+2. **Facetas e Lentes de Contato Dental**
+Lâminas finas que corrigem cor, formato e pequenas imperfeições, com resultado natural e sofisticado.
+
+3. **Facetas em Resina**
+Solução estética rápida e acessível para harmonizar o sorriso sem desgaste excessivo do dente.
+
+4. **Alinhadores Invisíveis**
+Correção do alinhamento dentário de forma discreta, confortável e removível — para o dia a dia sem interrupções.
+
+5. **Ortodontia Convencional**
+Aparelhos fixos com acompanhamento especializado para resultados duradouros em qualquer idade.
+
+6. **Implante Dentário**
+Devolução da função mastigatória e da estética com implantes de qualidade e acompanhamento próximo.
+
+7. **Prótese Dentária**
+Reabilitação oral com conforto e naturalidade, recuperando a confiança para sorrir e mastigar sem preocupação.
+
+8. **Limpeza e Prevenção**
+Remoção profissional de placa e tártaro para manter a saúde bucal em dia e prevenir problemas futuros.
+
+9. **Tratamento de Canal (Endodontia)**
+Técnica precisa para eliminar a dor e preservar o dente natural com segurança.
+
+10. **Periodontia**
+Diagnóstico e tratamento das gengivas, base essencial para um sorriso saudável e duradouro.
+
+11. **Cirurgias Odontológicas**
+Procedimentos cirúrgicos realizados com técnica, segurança e cuidado, incluindo extrações e outras intervenções.
+
+---
+
+## 7. Seção Resultados / Antes e Depois
+
+**Título:** Sorrisos transformados
+**Subtítulo:** Resultados reais de quem confiou no nosso cuidado.
+
+*(Espaço reservado para galeria de fotos de antes/depois — legendas sugeridas:)*
+- Clareamento Dental — resultado real de paciente
+- Facetas em Resina — resultado real de paciente
+- Ortodontia — acompanhamento do tratamento
+- Prótese Dentária — antes e depois
+- Implante Dentário — resultado real de paciente
+
+---
+
+## 8. Seção Depoimentos
+
+**Título:** O que nossos pacientes dizem
+**Subtítulo:** Histórias reais de quem transformou o sorriso com a gente.
+
+*(Modelo de depoimento — substituir por avaliações reais do Google ao publicar)*
+
+> "Sempre tive receio de ir ao dentista, mas na Odontoprime me senti acolhido desde o primeiro atendimento. Equipe atenciosa e resultado incrível!"
+**— Paciente Odontoprime · Avaliação no Google ★★★★★**
+
+> "Estrutura impecável, equipe muito preparada e um cuidado que faz toda diferença. Recomendo de olhos fechados."
+**— Paciente Odontoprime · Avaliação no Google ★★★★★**
+
+> "Fiz meu clareamento e as facetas com a equipe da Odontoprime. Superou todas as minhas expectativas!"
+**— Paciente Odontoprime · Avaliação no Google ★★★★★**
+
+---
+
+## 9. Seção Localização e Contato
+
+**Título:** Onde estamos
+**Subtítulo:** Venha nos conhecer
+
+**Endereço:**
+[Rua/Avenida, número — Bairro]
+Lavras/MG · CEP [00000-000]
+
+**Horário de atendimento:**
+- Segunda a Sexta: 08h00 – 18h00
+- Sábado: 08h00 – 12h00
+- Domingo: Fechado
+
+**Botões CTA:**
+- Agendar pelo WhatsApp
+- Ver no Google Maps
+
+---
+
+## 10. Seção CTA Final
+
+**Título:** Seu sorriso é a nossa prioridade
+
+**Texto:**
+Marque agora sua consulta de avaliação e descubra como a Odontoprime pode transformar a relação que você tem com o espelho.
+
+**Botão CTA:** Agendar pelo WhatsApp
+**Telefone/WhatsApp:** ([DDD]) [número]
+
+---
+
+## 11. Rodapé
+
+© 2026 Odontoprime Odontologia · CRO-MG [número] · Todos os direitos reservados
+Lavras · Minas Gerais · Brasil
+
+---
+
+### Observações para a próxima etapa (desenvolvimento)
+
+- Campos entre colchetes `[ ]` são placeholders a preencher com dados reais (nome da dentista, CRO, endereço, telefone, formação).
+- A estrutura segue o mesmo fluxo de seções do site de referência (Hero → Sobre → Especialista → Equipe → Diferenciais → Tratamentos → Resultados → Depoimentos → Localização → CTA final → Rodapé), mas com textos 100% autorais para a Odontoprime.
+- Os depoimentos são modelos de exemplo e devem ser substituídos por avaliações reais antes da publicação.
