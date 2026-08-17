@@ -5,57 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inova Prime — Dentista em Lavras/MG</title>
 <meta name="description" content="Estrutura moderna, tecnologia de ponta e uma equipe que trata cada paciente com atenção genuína, do primeiro contato ao resultado final. Inova Prime, dentista em Lavras/MG.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='rgb(30,58,138)'/><path d='M12 5c-2 0-3.6 1.3-4 3.2-.5 2.4-.2 4.8.6 7.2.3 1 .7 2 1.4 2.7.3.3.8.3 1.1-.1.4-.6.6-1.6.7-2.5.1-.7.3-1.3 1-1.3s.9.6 1 1.3c.1.9.3 1.9.7 2.5.3.4.8.4 1.1.1.7-.7 1.1-1.7 1.4-2.7.8-2.4 1.1-4.8.6-7.2-.4-1.9-2-3.2-4-3.2z' fill='white'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='rgb(74,59,42)'/><path d='M12 5c-2 0-3.6 1.3-4 3.2-.5 2.4-.2 4.8.6 7.2.3 1 .7 2 1.4 2.7.3.3.8.3 1.1-.1.4-.6.6-1.6.7-2.5.1-.7.3-1.3 1-1.3s.9.6 1 1.3c.1.9.3 1.9.7 2.5.3.4.8.4 1.1.1.7-.7 1.1-1.7 1.4-2.7.8-2.4 1.1-4.8.6-7.2-.4-1.9-2-3.2-4-3.2z' fill='rgb(201,166,107)'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   /* ==========================================================
      DESIGN TOKENS — Inova Prime Design System
      ========================================================== */
   :root{
-    /* Cores — neutros base */
-    --color-text-primary:#0B1120;
-    --color-text-secondary:#4B5563;
-    --color-text-tertiary:#9CA3AF;
-    --color-bg:#FFFFFF;
-    --color-bg-alt:#F7F8FA;
-    --color-border:#E5E7EB;
-    --color-hero-overlay:rgba(11,17,32,0.55);
+    /* Cores — neutros base (tons quentes) */
+    --color-text-primary:#3D3125;
+    --color-text-secondary:#6B5D4F;
+    --color-text-tertiary:#9B8B78;
+    --color-bg:#F5F0E8;
+    --color-bg-alt:#FBF8F3;
+    --color-bg-hero:#EDE4D6;
+    --color-border:#DCD3C4;
+    --color-hero-overlay:rgba(61,49,37,0.55);
 
-    /* Cores — marca */
-    --color-blue:#2563EB;
-    --color-blue-dark:#1E3A8A;
-    --color-blue-ice:#EFF6FF;
+    /* Cores — marca (marrom) */
+    --color-blue:#4A3B2A;
+    --color-blue-dark:#372B1E;
+    --color-blue-ice:#EDE4D6;
 
-    /* Cores — CTA / conversão */
+    /* Cores — acento dourado (uso decorativo: linhas, ícones, bullets) */
+    --color-gold:#C9A66B;
+    /* Dourado escurecido para TEXTO (o tom claro acima só passa ~2:1 de
+       contraste sobre os fundos claros, abaixo do mínimo AA de 4.5:1) */
+    --color-gold-text:#7D5F22;
+
+    /* Cores — CTA / conversão (verde restrito ao ícone do WhatsApp) */
     --color-whatsapp:#25D366;
     --color-whatsapp-dark:#1DA851;
-    --color-amber:#F59E0B;
-    --color-mint:#10B981;
+    --color-amber:#3D3125;
+    --color-mint:#7A8B6F;
+
+    /* Cores — botão primário (marrom sólido) */
+    --color-button-primary:#4A3B2A;
+    --color-button-primary-hover:#372B1E;
 
     /* Tipografia */
-    --font-display:'Manrope','General Sans','Segoe UI',system-ui,-apple-system,sans-serif;
+    --font-display:'Cormorant Garamond','Georgia','Times New Roman',serif;
     --font-body:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
 
     /* Border radius */
     --radius-button:999px;
-    --radius-input:12px;
-    --radius-card:20px;
-    --radius-image:24px;
+    --radius-input:10px;
+    --radius-card:16px;
+    --radius-card-sm:8px;
+    --radius-image:16px;
     --radius-badge:999px;
     --radius-avatar:50%;
 
-    /* Sombras */
-    --shadow-1:0 4px 16px rgba(11,17,32,0.06);
-    --shadow-2:0 8px 24px rgba(11,17,32,0.10);
-    --shadow-cta:0 8px 20px rgba(37,211,102,0.35);
-    --shadow-float:0 6px 20px rgba(37,211,102,0.45);
+    /* Sombras (suaves e quentes) */
+    --shadow-1:0 4px 20px rgba(61,49,37,0.06);
+    --shadow-2:0 10px 30px rgba(61,49,37,0.10);
+    --shadow-cta:0 8px 24px rgba(74,59,42,0.25);
+    --shadow-float:0 8px 24px rgba(74,59,42,0.3);
 
     /* Espaçamentos (grid de 8px) */
     --space-xs:8px;
     --space-sm:16px;
-    --space-md:24px;
-    --space-lg:40px;
-    --space-xl:64px;
-    --space-2xl:96px;
+    --space-md:28px;
+    --space-lg:48px;
+    --space-xl:80px;
+    --space-2xl:120px;
 
     --container-max:1200px;
     --container-pad:24px;
@@ -115,38 +130,55 @@
   }
 
   .eyebrow{
-    display:inline-block;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
     font-family:var(--font-body);
-    font-weight:600;
-    font-size:13px;
-    letter-spacing:0.05em;
+    font-weight:500;
+    font-size:12px;
+    letter-spacing:0.15em;
     text-transform:uppercase;
-    color:var(--color-blue);
+    color:var(--color-gold-text);
     margin-bottom:var(--space-sm);
   }
-  .eyebrow--light{ color:#BFD4FF; }
+  .eyebrow::before{
+    content:'';
+    display:inline-block;
+    width:28px;
+    height:1px;
+    background:var(--color-gold);
+    flex-shrink:0;
+  }
+  .section-head--center .eyebrow{ justify-content:center; }
+  /* Sobre o vídeo/overlay escuro do hero, o dourado escurecido (texto)
+     não tem contraste suficiente — usa o dourado claro decorativo,
+     que já se destaca bem sobre um fundo escuro. */
+  .eyebrow--light{ color:var(--color-gold); }
+  .eyebrow--light::before{ background:var(--color-gold); }
 
-  h1{ font-family:var(--font-display); font-weight:800; font-size:34px; line-height:1.1; color:var(--color-text-primary); }
-  h2{ font-family:var(--font-display); font-weight:700; font-size:26px; line-height:1.2; color:var(--color-text-primary); }
-  h3{ font-family:var(--font-display); font-weight:700; font-size:19px; line-height:1.3; color:var(--color-text-primary); }
+  h1{ font-family:var(--font-display); font-weight:500; font-size:38px; line-height:1.15; color:var(--color-text-primary); }
+  h1 em, .italic-accent{ font-style:italic; font-weight:500; }
+  h2{ font-family:var(--font-display); font-weight:500; font-size:30px; line-height:1.2; color:var(--color-text-primary); }
+  h3{ font-family:var(--font-display); font-weight:600; font-size:22px; line-height:1.3; color:var(--color-text-primary); }
   h4{ font-family:var(--font-body); font-weight:600; font-size:13px; line-height:1.4; letter-spacing:0.05em; text-transform:uppercase; }
-  .stat-number{ font-family:var(--font-display); font-weight:800; font-size:28px; line-height:1; }
+  .stat-number{ font-family:var(--font-display); font-weight:500; font-size:40px; line-height:1; color:var(--color-text-primary); }
   small, .small-text{ font-size:12px; line-height:1.5; }
+  body{ font-size:15px; }
 
   @media (min-width:768px){
-    h1{ font-size:44px; }
-    h2{ font-size:32px; }
-    h3{ font-size:21px; }
-    .stat-number{ font-size:34px; }
+    h1{ font-size:50px; }
+    h2{ font-size:38px; }
+    h3{ font-size:24px; }
+    .stat-number{ font-size:48px; }
   }
   @media (min-width:1024px){
-    h1{ font-size:56px; }
-    h2{ font-size:36px; }
-    h3{ font-size:22px; }
+    h1{ font-size:64px; }
+    h2{ font-size:44px; }
+    h3{ font-size:26px; }
     h4{ font-size:14px; }
-    body{ font-size:18px; }
+    body{ font-size:17px; }
     small, .small-text{ font-size:13px; }
-    .stat-number{ font-size:40px; }
+    .stat-number{ font-size:56px; }
   }
 
   section{ padding:var(--space-2xl) 0; }
@@ -164,33 +196,47 @@
     justify-content:center;
     gap:10px;
     min-height:44px;
-    padding:12px 22px;
+    padding:14px 24px;
     border-radius:var(--radius-button);
     font-family:var(--font-body);
     font-weight:600;
-    font-size:15px;
+    font-size:13px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
     text-decoration:none;
     border:1px solid transparent;
     transition:transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     white-space:nowrap;
   }
   @media (min-width:768px){
-    .btn{ padding:14px 28px; font-size:16px; }
+    .btn{ padding:18px 32px; font-size:14px; }
   }
 
   .btn-primary{
-    /* WhatsApp green (#25D366) only reaches ~2:1 contrast with white text,
-       well under WCAG AA's 4.5:1 for normal text — so the label/icon use
-       the design system's dark neutral instead of white here. */
-    background:var(--color-whatsapp);
-    color:var(--color-text-primary);
+    /* Botão de conversão: fundo marrom sólido (cor de maior contraste sobre
+       o fundo claro) — o verde do WhatsApp fica restrito ao ícone, para não
+       quebrar a paleta nude/marrom. */
+    background:var(--color-button-primary);
+    color:var(--color-bg-alt);
     box-shadow:var(--shadow-cta);
   }
   .btn-primary:hover, .btn-primary:focus-visible{
-    background:var(--color-whatsapp-dark);
+    background:var(--color-button-primary-hover);
     transform:translateY(-2px);
-    box-shadow:0 12px 26px rgba(37,211,102,0.4);
+    box-shadow:0 12px 28px rgba(74,59,42,0.32);
   }
+  .btn-primary .icon-whatsapp{ color:var(--color-whatsapp); }
+
+  /* Variante sobre fundo escuro (bloco de CTA final): inverte para claro/dourado */
+  .btn-primary--on-dark{
+    background:var(--color-gold);
+    color:var(--color-blue-dark);
+  }
+  .btn-primary--on-dark:hover, .btn-primary--on-dark:focus-visible{
+    background:#DAB988;
+    box-shadow:0 12px 28px rgba(0,0,0,0.25);
+  }
+  .btn-primary--on-dark .icon-whatsapp{ color:var(--color-whatsapp-dark); }
 
   .btn-secondary{
     background:transparent;
@@ -248,22 +294,16 @@
   .logo{
     display:flex;
     align-items:center;
-    gap:10px;
     text-decoration:none;
-    font-family:var(--font-display);
-    font-weight:800;
-    font-size:19px;
-    color:var(--color-text-primary);
   }
-  .logo-mark{
-    width:36px;
-    height:36px;
-    border-radius:10px;
-    background:var(--color-blue-dark);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
+  .logo img{
+    /* Dimensões fixas (não auto) porque dentro de um contêiner flex sem
+       flex-basis explícito, um replaced element com width:auto +
+       max-width:100% pode colapsar para 0 em vez de usar a proporção
+       intrínseca. */
+    width:78px;
+    height:48px;
+    max-width:none;
   }
 
   .main-nav{
@@ -339,7 +379,7 @@
     color:#fff;
     padding-top:var(--space-2xl);
     padding-bottom:var(--space-2xl);
-    background:var(--color-text-primary);
+    background:var(--color-blue-dark);
     overflow:hidden;
   }
   .hero-bg-video{
@@ -362,7 +402,7 @@
     gap:var(--space-xl);
     align-items:center;
   }
-  .hero-text p{ color:#D6DEEE; font-size:17px; }
+  .hero-text p{ color:#E7DFD2; font-size:17px; }
   .hero h1{ color:#fff; margin-top:var(--space-sm); }
   .hero-subtitle{ margin-top:var(--space-md); max-width:560px; }
   .hero-actions{ display:flex; flex-wrap:wrap; gap:var(--space-sm); margin-top:var(--space-lg); }
@@ -373,22 +413,19 @@
     grid-template-columns:1fr 1fr;
     gap:var(--space-md);
   }
-  .hero-stat{ border-top:1px solid rgba(255,255,255,0.2); padding-top:var(--space-sm); }
-  .hero-stat .stat-number{ color:#fff; }
-  .hero-stat .stat-label{ display:block; margin-top:4px; font-size:13px; color:#B9C4DA; }
-
-  @media (min-width:768px){
+  @media (min-width:480px){
     .hero-stats{ grid-template-columns:repeat(4,1fr); }
   }
-  @media (min-width:1024px){
-    .hero-inner{ grid-template-columns:1.1fr 0.9fr; }
-  }
+  .hero-stat{ border-top:1px solid rgba(255,255,255,0.25); padding-top:var(--space-sm); }
+  .hero-stat .stat-number{ color:#fff; }
+  .hero-stat .stat-label{ display:block; margin-top:4px; font-size:13px; color:#C9BEAC; }
+
 
   /* ==========================================================
      CARDS — genéricos
      ========================================================== */
   .card{
-    background:#fff;
+    background:var(--color-bg-alt);
     border:1px solid var(--color-border);
     border-radius:var(--radius-card);
     padding:var(--space-md);
@@ -398,19 +435,17 @@
   .card:hover{
     box-shadow:var(--shadow-2);
     transform:translateY(-4px);
-    border-color:var(--color-blue-ice);
+    border-color:var(--color-gold);
   }
   .card-icon{
-    width:52px;
-    height:52px;
-    border-radius:14px;
-    background:var(--color-blue-ice);
+    width:40px;
+    height:40px;
     display:flex;
     align-items:center;
     justify-content:center;
-    margin-bottom:var(--space-sm);
+    margin-bottom:var(--space-md);
   }
-  .card-icon svg{ width:26px; height:26px; stroke:var(--color-blue); }
+  .card-icon svg{ width:32px; height:32px; stroke:var(--color-gold); }
   .card h3{ margin-bottom:8px; }
 
   .grid{ display:grid; gap:var(--space-md); }
@@ -430,17 +465,26 @@
   @media (min-width:1024px){ .about-layout{ grid-template-columns:1fr 1fr; } }
   .about-intro{ max-width:760px; }
   .about-intro p{ margin-top:var(--space-sm); font-size:18px; }
-  .about-gallery{ display:grid; gap:var(--space-sm); }
+  .about-gallery{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:var(--space-sm);
+  }
   .about-gallery img{
     width:100%;
-    height:auto;
     border-radius:var(--radius-image);
     box-shadow:var(--shadow-2);
     object-fit:cover;
     display:block;
   }
-  .about-gallery .about-photo-wide{ aspect-ratio:860/645; }
-  .about-gallery .about-photo-square{ aspect-ratio:1/1; max-width:60%; margin-left:auto; margin-right:0; }
+  .about-gallery .about-photo-wide{ height:auto; aspect-ratio:860/645; }
+  .about-gallery .about-photo-square{ height:auto; aspect-ratio:1/1; }
+  .about-gallery .about-photo-tall{ height:auto; aspect-ratio:4/5; }
+
+  @media (min-width:480px){
+    .about-gallery{ grid-template-columns:1fr 1fr; grid-template-rows:auto auto; }
+    .about-gallery .about-photo-tall{ grid-row:1 / 3; height:100%; }
+  }
 
   /* ==========================================================
      ESPECIALISTA
@@ -465,20 +509,35 @@
   .specialist-role{
     color:var(--color-blue);
     font-weight:600;
-    font-size:15px;
-    margin-top:4px;
-  }
-  .specialist-text{ margin-top:var(--space-md); font-size:17px; }
-  .specialist-list{ margin-top:var(--space-lg); display:grid; gap:var(--space-md); }
-  .specialist-item{ display:flex; gap:14px; }
-  .specialist-item .dot{
-    flex-shrink:0;
-    width:10px; height:10px;
-    border-radius:50%;
-    background:var(--color-whatsapp);
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
     margin-top:8px;
   }
+  .specialist-text{ margin-top:var(--space-md); font-size:17px; }
+  .specialist-text strong{ color:var(--color-text-primary); font-weight:600; }
+  .specialist-list{ margin-top:var(--space-lg); display:grid; gap:0; }
+  .specialist-item{
+    display:flex;
+    align-items:flex-start;
+    gap:16px;
+    padding:var(--space-md) 0;
+    border-top:1px solid var(--color-border);
+  }
+  .specialist-item:first-child{ border-top:none; padding-top:0; }
+  .specialist-item .specialist-icon{
+    flex-shrink:0;
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:var(--color-blue-ice);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .specialist-item .specialist-icon svg{ width:18px; height:18px; stroke:var(--color-gold-text); }
   .specialist-item h3{ font-size:16px; margin-bottom:4px; }
+  .specialist-item p strong{ color:var(--color-text-primary); font-weight:600; }
   @media (min-width:1024px){
     .specialist{ grid-template-columns:0.8fr 1.2fr; }
   }
@@ -577,7 +636,7 @@
     cursor:pointer;
     transition:background-color 0.2s ease, width 0.2s ease;
   }
-  .results-dot:hover{ background:var(--color-text-tertiary); }
+  .results-dot:hover{ background:var(--color-text-secondary); }
   .results-dot.is-active{ background:var(--color-blue); width:26px; }
   .results-dot:focus-visible{ outline:3px solid var(--color-blue); outline-offset:2px; }
 
@@ -617,7 +676,7 @@
     box-shadow:var(--shadow-1);
     min-height:280px;
   }
-  .location-map img{ width:100%; height:100%; object-fit:cover; min-height:280px; }
+  .location-map iframe{ width:100%; height:100%; min-height:280px; border:0; display:block; }
   .location-info dl{ margin-top:var(--space-sm); }
   .location-block{ margin-bottom:var(--space-lg); }
   .location-block h3{ margin-bottom:8px; }
@@ -634,28 +693,28 @@
      ========================================================== */
   .cta-final{
     background:var(--color-blue-dark);
-    color:#fff;
+    color:var(--color-bg-alt);
     border-radius:var(--radius-image);
     padding:var(--space-2xl) var(--space-md);
     text-align:center;
   }
-  .cta-final h2{ color:#fff; }
-  .cta-final p{ color:#CFDCF6; max-width:560px; margin:var(--space-sm) auto 0; font-size:18px; }
+  .cta-final h2{ color:var(--color-bg-alt); }
+  .cta-final p{ color:#D8CBB8; max-width:560px; margin:var(--space-sm) auto 0; font-size:18px; }
   .cta-final .btn-primary{ margin-top:var(--space-lg); }
-  .cta-final .phone{ margin-top:var(--space-md); color:#CFDCF6; font-size:15px; }
-  .cta-final .phone a{ color:#fff; text-decoration:underline; }
+  .cta-final .phone{ margin-top:var(--space-md); color:#D8CBB8; font-size:15px; }
+  .cta-final .phone a{ color:var(--color-bg-alt); text-decoration:underline; }
 
   /* ==========================================================
      FOOTER
      ========================================================== */
   .site-footer{
     background:var(--color-text-primary);
-    color:#B9C4DA;
+    color:#B3A491;
     padding:var(--space-xl) 0;
   }
   .footer-inner{ display:flex; flex-direction:column; gap:var(--space-sm); align-items:center; text-align:center; }
   .footer-inner p{ margin:0; font-size:14px; }
-  .footer-logo{ font-family:var(--font-display); font-weight:800; font-size:18px; color:#fff; }
+  .footer-logo{ font-family:var(--font-display); font-weight:600; font-style:italic; font-size:22px; color:var(--color-bg-alt); }
 
   /* ==========================================================
      WHATSAPP FLUTUANTE
@@ -667,10 +726,8 @@
     width:56px;
     height:56px;
     border-radius:50%;
-    background:var(--color-whatsapp);
-    /* Dark icon instead of white: white-on-#25D366 is only ~2:1 contrast,
-       under the 3:1 WCAG AA minimum for icons/UI components. */
-    color:var(--color-text-primary);
+    background:var(--color-button-primary);
+    color:var(--color-whatsapp);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -680,7 +737,7 @@
     animation:wa-pulse 2.6s ease-in-out infinite;
   }
   .whatsapp-float svg{ width:28px; height:28px; }
-  .whatsapp-float:hover, .whatsapp-float:focus-visible{ background:var(--color-whatsapp-dark); animation-play-state:paused; }
+  .whatsapp-float:hover, .whatsapp-float:focus-visible{ background:var(--color-button-primary-hover); animation-play-state:paused; }
   @keyframes wa-pulse{
     0%,100%{ transform:scale(1); }
     50%{ transform:scale(1.08); }
@@ -713,12 +770,7 @@
 <header class="site-header">
   <div class="container header-inner">
     <a href="#inicio" class="logo" aria-label="Inova Prime — página inicial">
-      <span class="logo-mark" aria-hidden="true">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 3c-2.5 0-4.5 1.6-5 4-.6 3-.2 6 .8 9 .4 1.2.9 2.5 1.7 3.4.4.4 1 .4 1.4-.1.5-.7.7-2 .9-3.1.1-.9.4-1.6 1.2-1.6s1.1.7 1.2 1.6c.2 1.1.4 2.4.9 3.1.4.5 1 .5 1.4.1.8-.9 1.3-2.2 1.7-3.4 1-3 1.4-6 .8-9-.5-2.4-2.5-4-5-4z" stroke="#FFFFFF" stroke-width="1.6" stroke-linejoin="round"/>
-        </svg>
-      </span>
-      Inova Prime
+      <img src="Logo/download.png" alt="Inova Prime Odontologia" width="520" height="321">
     </a>
 
     <nav class="main-nav" aria-label="Navegação principal">
@@ -735,14 +787,14 @@
 
     <div class="header-actions">
       <a class="btn btn-primary" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">
-        <span aria-hidden="true">
+        <span class="icon-whatsapp" aria-hidden="true">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 8.7c.2-.5.5-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.6 1.5.7 1.6.1.2.1.3 0 .5-.1.2-.2.3-.4.5-.2.2-.4.3-.2.6.2.4 1 1.5 2.1 2.1.5.3.8.2 1-.1.2-.2.7-.8.9-1 .2-.2.3-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.4 0 .2 0 .9-.4 1.4-.4.5-1.3.9-2.2.8-.8-.1-2.6-.9-4.2-2.5-1.6-1.6-2.3-3.3-2.5-4.2-.1-.9.2-1.7.7-2.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
         </span>
         Agendar
       </a>
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menu de navegação">
         <svg id="navToggleIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="#0B1120" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="#3D3125" stroke-width="1.8" stroke-linecap="round"/>
         </svg>
       </button>
     </div>
@@ -769,16 +821,16 @@
        ========================================================== -->
   <section id="inicio" class="hero" aria-labelledby="hero-title">
     <video class="hero-bg-video" id="heroVideo" autoplay muted loop playsinline aria-hidden="true">
-      <source src="V%C3%ADdeo/Dental_clinic_interior_view_202608160859.mp4" type="video/mp4">
+      <source src="V%C3%ADdeo/novo%20v%C3%ADdeo.mp4" type="video/mp4">
     </video>
     <div class="container hero-inner">
       <div class="hero-text">
         <span class="eyebrow eyebrow--light">Odontologia de excelência · Lavras/MG</span>
-        <h1 id="hero-title">Seu sorriso merece o melhor cuidado. A Inova Prime existe para transformar essa experiência.</h1>
+        <h1 id="hero-title">Seu sorriso merece o melhor cuidado. A Inova Prime existe para transformar <em>essa experiência</em>.</h1>
         <p class="hero-subtitle">Estrutura moderna, tecnologia de ponta e uma equipe que trata cada paciente com atenção genuína, do primeiro contato ao resultado final.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">
-            <span aria-hidden="true">
+            <span class="icon-whatsapp" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 8.7c.2-.5.5-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.6 1.5.7 1.6.1.2.1.3 0 .5-.1.2-.2.3-.4.5-.2.2-.4.3-.2.6.2.4 1 1.5 2.1 2.1.5.3.8.2 1-.1.2-.2.7-.8.9-1 .2-.2.3-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.4 0 .2 0 .9-.4 1.4-.4.5-1.3.9-2.2.8-.8-.1-2.6-.9-4.2-2.5-1.6-1.6-2.3-3.3-2.5-4.2-.1-.9.2-1.7.7-2.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
             </span>
             Agendar pelo WhatsApp
@@ -792,7 +844,7 @@
             <span class="stat-label">Avaliação no Google</span>
           </div>
           <div class="hero-stat">
-            <span class="stat-number">+6</span>
+            <span class="stat-number">+4</span>
             <span class="stat-label">Anos cuidando de sorrisos em Lavras</span>
           </div>
           <div class="hero-stat">
@@ -817,12 +869,13 @@
         <div class="about-intro reveal">
           <span class="eyebrow">Sobre a clínica</span>
           <h2 id="sobre-title">Sobre a Inova Prime</h2>
-          <p>A Inova Prime nasceu do propósito de oferecer uma odontologia diferente: próxima, cuidadosa e tecnicamente impecável. Há mais de 6 anos atendendo em Lavras-MG, construímos uma reputação baseada em confiança, resultado e respeito ao tempo e às necessidades de cada paciente.</p>
+          <p>A Inova Prime nasceu do propósito de oferecer uma odontologia diferente: próxima, cuidadosa e tecnicamente impecável. Há mais de 4 anos atendendo em Lavras-MG, construímos uma reputação baseada em confiança, resultado e respeito ao tempo e às necessidades de cada paciente.</p>
         </div>
 
         <div class="about-gallery reveal">
-          <img class="about-photo-wide" src="Sobre%20a%20Odontoprime/Inova%20prime2.jpg" alt="Fachada da clínica Inova Prime" loading="lazy" width="860" height="645">
-          <img class="about-photo-square" src="Sobre%20a%20Odontoprime/Inova%20prime3.jpg" alt="Consultório odontológico moderno e equipado da Inova Prime" loading="lazy" width="440" height="440">
+          <img class="about-photo-tall" src="Sobre%20a%20Inova%20Prime/download.jpg" alt="Recepção da clínica Inova Prime, com iluminação dourada e o emblema da marca na parede" loading="lazy" width="760" height="950">
+          <img class="about-photo-wide" src="Sobre%20a%20Inova%20Prime/Inova%20prime2.jpg" alt="Fachada da clínica Inova Prime" loading="lazy" width="860" height="645">
+          <img class="about-photo-square" src="Sobre%20a%20Inova%20Prime/Inova%20prime3.jpg" alt="Consultório odontológico moderno e equipado da Inova Prime" loading="lazy" width="440" height="440">
         </div>
       </div>
 
@@ -871,36 +924,44 @@
 
         <div class="specialist-info reveal">
           <h3 class="specialist-name" style="font-size:26px;">Dra. Juliana Corrêa</h3>
-          <p class="specialist-role">Estética &amp; Prótese · Diretora Clínica · CRO-MG 57108</p>
-          <p class="specialist-text">Responsável técnica da Inova Prime, a Dra. Juliana é referência em transformações de sorriso na região de Lavras. À frente da equipe, ela conduz cada tratamento unindo técnica apurada, escuta atenta e um cuidado que vai muito além do consultório.</p>
+          <p class="specialist-role">Estética &amp; Prótese Dental · Diretora Clínica · CRO-MG 57108</p>
+          <p class="specialist-text">Responsável técnica da Inova Prime e referência em transformações de sorriso em Lavras e região, a Dra. Juliana lidera a equipe com uma missão clara: <strong>construir sorrisos que mudam vidas</strong>.</p>
 
           <div class="specialist-list">
             <div class="specialist-item">
-              <span class="dot" aria-hidden="true"></span>
+              <div class="specialist-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.5V16c0 1.5 2.5 3 6 3s6-1.5 6-3v-5.5"/><path d="M22 8v6"/></svg>
+              </div>
               <div>
                 <h3>Formação Acadêmica</h3>
-                <p>Cirurgiã-dentista formada por [instituição a definir].</p>
+                <p>Cirurgiã-dentista graduada pela <strong>Unifenas</strong>.</p>
               </div>
             </div>
             <div class="specialist-item">
-              <span class="dot" aria-hidden="true"></span>
+              <div class="specialist-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.5 3 2 5.5 5 6-3 .5-4.5 3-5 6-.5-3-2-5.5-5-6 3-.5 4.5-3 5-6Z"/></svg>
+              </div>
               <div>
                 <h3>Especialização</h3>
-                <p>Pós-graduada em Estética e Reabilitação Oral.</p>
+                <p>Pós-graduada em <strong>Prótese e Estética Dental</strong> pelo Instituto Mardem Bastos.</p>
               </div>
             </div>
             <div class="specialist-item">
-              <span class="dot" aria-hidden="true"></span>
+              <div class="specialist-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6 .7-4.4 4.1 1.2 6-5.4-3-5.4 3 1.2-6L3.4 9.3l6-.7L12 3Z"/></svg>
+              </div>
               <div>
-                <h3>Aperfeiçoamento Contínuo</h3>
-                <p>Atualização constante em técnicas modernas de odontologia estética.</p>
+                <h3>Expert em Clareamento</h3>
+                <p>Especialista em transformações de sorriso com <strong>precisão técnica</strong> e cuidado detalhado.</p>
               </div>
             </div>
             <div class="specialist-item">
-              <span class="dot" aria-hidden="true"></span>
+              <div class="specialist-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.5-9C1 7.5 2.5 4 6 4c2 0 3.5 1.2 4 2.5.5-1.3 2-2.5 4-2.5 3.5 0 5 3.5 3.5 7-2.5 4.5-9.5 9-9.5 9Z"/></svg>
+              </div>
               <div>
-                <h3>Compromisso com a Comunidade</h3>
-                <p>Participação em ações sociais de saúde bucal voltadas a famílias de Lavras e região.</p>
+                <h3>Compromisso Social</h3>
+                <p>Coordenadora voluntária da <strong>ONG Turma do Bem</strong> em Lavras, liderando projetos de saúde bucal para crianças em situação de vulnerabilidade.</p>
               </div>
             </div>
           </div>
@@ -1208,7 +1269,7 @@
           <p class="testimonial-stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</p>
           <p class="testimonial-text">Sempre tive receio de ir ao dentista, mas na Inova Prime me senti acolhido desde o primeiro atendimento. Equipe atenciosa e resultado incrível!</p>
           <footer class="testimonial-author">
-            <img data-ph data-w="96" data-h="96" data-c1="#2563EB" data-c2="#1E3A8A" alt="" role="presentation" loading="lazy" width="48" height="48">
+            <img data-ph data-w="96" data-h="96" data-c1="#9B8B78" data-c2="#4A3B2A" alt="" role="presentation" loading="lazy" width="48" height="48">
             <span>Paciente Inova Prime · Avaliação no Google ★★★★★</span>
           </footer>
         </blockquote>
@@ -1218,7 +1279,7 @@
           <p class="testimonial-stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</p>
           <p class="testimonial-text">Estrutura impecável, equipe muito preparada e um cuidado que faz toda diferença. Recomendo de olhos fechados.</p>
           <footer class="testimonial-author">
-            <img data-ph data-w="96" data-h="96" data-c1="#2563EB" data-c2="#1E3A8A" alt="" role="presentation" loading="lazy" width="48" height="48">
+            <img data-ph data-w="96" data-h="96" data-c1="#9B8B78" data-c2="#4A3B2A" alt="" role="presentation" loading="lazy" width="48" height="48">
             <span>Paciente Inova Prime · Avaliação no Google ★★★★★</span>
           </footer>
         </blockquote>
@@ -1228,7 +1289,7 @@
           <p class="testimonial-stars" aria-label="Avaliação 5 de 5 estrelas">★★★★★</p>
           <p class="testimonial-text">Fiz meu clareamento e as facetas com a equipe da Inova Prime. Superou todas as minhas expectativas!</p>
           <footer class="testimonial-author">
-            <img data-ph data-w="96" data-h="96" data-c1="#2563EB" data-c2="#1E3A8A" alt="" role="presentation" loading="lazy" width="48" height="48">
+            <img data-ph data-w="96" data-h="96" data-c1="#9B8B78" data-c2="#4A3B2A" alt="" role="presentation" loading="lazy" width="48" height="48">
             <span>Paciente Inova Prime · Avaliação no Google ★★★★★</span>
           </footer>
         </blockquote>
@@ -1249,8 +1310,12 @@
 
       <div class="location">
         <div class="location-map reveal">
-          <img src="Onde%20Estamos/Inova%20prime2.jpg"
-               alt="Fachada da Inova Prime, Av. Dr. Silvio Menicucci, 1993, Presidente Kennedy, Lavras/MG" loading="lazy" width="860" height="645">
+          <iframe
+            src="https://www.google.com/maps?q=Av.+Dr.+Silvio+Menicucci%2C+1993+-+Presidente+Kennedy%2C+Lavras+-+MG%2C+37203-696&output=embed"
+            title="Mapa com a localização da Inova Prime em Lavras/MG"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            aria-label="Mapa interativo do Google Maps mostrando o endereço da Inova Prime"></iframe>
         </div>
 
         <div class="location-info reveal">
@@ -1270,7 +1335,7 @@
 
           <div class="location-actions">
             <a class="btn btn-primary" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">
-              <span aria-hidden="true">
+              <span class="icon-whatsapp" aria-hidden="true">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 8.7c.2-.5.5-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.6 1.5.7 1.6.1.2.1.3 0 .5-.1.2-.2.3-.4.5-.2.2-.4.3-.2.6.2.4 1 1.5 2.1 2.1.5.3.8.2 1-.1.2-.2.7-.8.9-1 .2-.2.3-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.4 0 .2 0 .9-.4 1.4-.4.5-1.3.9-2.2.8-.8-.1-2.6-.9-4.2-2.5-1.6-1.6-2.3-3.3-2.5-4.2-.1-.9.2-1.7.7-2.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
               </span>
               Agendar pelo WhatsApp
@@ -1290,8 +1355,8 @@
       <div class="cta-final reveal">
         <h2 id="cta-final-title">Seu sorriso é a nossa prioridade</h2>
         <p>Marque agora sua consulta de avaliação e descubra como a Inova Prime pode transformar a relação que você tem com o espelho.</p>
-        <a class="btn btn-primary" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">
-          <span aria-hidden="true">
+        <a class="btn btn-primary btn-primary--on-dark" href="https://wa.me/5535997536599" target="_blank" rel="noopener noreferrer">
+          <span class="icon-whatsapp" aria-hidden="true">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 8.7c.2-.5.5-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.6 1.5.7 1.6.1.2.1.3 0 .5-.1.2-.2.3-.4.5-.2.2-.4.3-.2.6.2.4 1 1.5 2.1 2.1.5.3.8.2 1-.1.2-.2.7-.8.9-1 .2-.2.3-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.4 0 .2 0 .9-.4 1.4-.4.5-1.3.9-2.2.8-.8-.1-2.6-.9-4.2-2.5-1.6-1.6-2.3-3.3-2.5-4.2-.1-.9.2-1.7.7-2.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
           </span>
           Agendar pelo WhatsApp
@@ -1344,8 +1409,8 @@
   phImages.forEach(function(img){
     var w = img.getAttribute('data-w') || 400;
     var h = img.getAttribute('data-h') || 400;
-    var c1 = img.getAttribute('data-c1') || '#2563EB';
-    var c2 = img.getAttribute('data-c2') || '#1E3A8A';
+    var c1 = img.getAttribute('data-c1') || '#9B8B78';
+    var c2 = img.getAttribute('data-c2') || '#4A3B2A';
     /* Embedded data-URI placeholders carry no network cost, so lazy-loading
        them buys nothing — and assigning src via JS while loading="lazy" is
        set fails to decode in some engines. Switch to eager only for these
@@ -1360,8 +1425,8 @@
   var mobileNav = document.getElementById('mobileNav');
   var navToggleIcon = document.getElementById('navToggleIcon');
 
-  var iconMenu = '<path d="M4 6h16M4 12h16M4 18h16" stroke="#0B1120" stroke-width="1.8" stroke-linecap="round"/>';
-  var iconClose = '<path d="M6 6l12 12M18 6L6 18" stroke="#0B1120" stroke-width="1.8" stroke-linecap="round"/>';
+  var iconMenu = '<path d="M4 6h16M4 12h16M4 18h16" stroke="#3D3125" stroke-width="1.8" stroke-linecap="round"/>';
+  var iconClose = '<path d="M6 6l12 12M18 6L6 18" stroke="#3D3125" stroke-width="1.8" stroke-linecap="round"/>';
 
   function closeMobileNav(){
     mobileNav.classList.remove('is-open');
